@@ -20,7 +20,7 @@ import {
 import {
   Colors,
   DebugInstructions,
-  Header,
+ // Header,                  //wealcome to react native piesinukas
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
@@ -62,38 +62,51 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Tvarkarastis
-          ">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="ZEMELAPIS">
-            <ReloadInstructions />
-          </Section>
-          <Section title="DIENYNAS">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+  const Header = () => {
+    return(
+    <View style={styles.header}>
+    <Text style={styles.sectionTitle}> CIA BUS LOGO </Text>
+    </View>
+    )
+  } 
+  const Boxes = () => {
+    return(
+    <View style={styles.boxContainer}>
+
+    <View style={styles.box}>
+    <View style={styles.inner}>   
+    <Text style={styles.sectionTitle}> Tvarkarastis </Text> 
+    </View>
+    </View>
+    
+    <View style={styles.box}>
+    <View style={styles.inner}>   
+    <Text style={styles.sectionTitle}> Zemelapis </Text> 
+    </View>
+    </View>
+
+    <View style={styles.box}>
+    <View style={styles.inner}>   
+    <Text style={styles.sectionTitle}> Dienynas </Text> 
+    </View>
+    </View>
+
+    <View style={styles.box}>
+    <View style={styles.inner}>   
+    <Text style={styles.sectionTitle}> Moodle </Text> 
+    </View>
+    </View>
+
+    </View>
+
+    )
+  } 
+  return (      
+    <SafeAreaView>
+   
+     <Header/>
+     <Boxes/>
+        </SafeAreaView>
   );
 }
 
@@ -105,6 +118,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    color: '#FFFF00',
   },
   sectionDescription: {
     marginTop: 8,
@@ -114,6 +128,59 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+header : {
+  width: '100%',
+  height: '15%',
+  backgroundColor: 'blue',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+boxContainer : {
+  width: '100%',
+  height: '85%',
+  backgroundColor: 'red',
+  padding: 5,
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+},
+box :{
+  width: '50%',
+  height: '50%',
+  backgroundColor: 'blue',
+  padding: 5,
+},
+inner : {
+flex: 1,
+backgroundColor: "grey",  
+alignItems: 'center',
+justifyContent: 'center',
+}
+  // REACT NATIVE PAVYZDYS!!!!
+  /* {<ScrollView
+    contentInsetAdjustmentBehavior="automatic"
+    style={backgroundStyle}>
+    <Header />  
+    <View
+      style={{
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      }}>
+      <Section title="Tvarkarastis
+      ">
+        Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+        screen and then come back to see your edits.
+      </Section>
+      <Section title="ZEMELAPIS">
+        <ReloadInstructions />
+      </Section>
+      <Section title="DIENYNAS">
+        <DebugInstructions />
+      </Section>
+      <Section title="Learn More">
+        Read the docs to discover what to do next:
+      </Section>
+      <LearnMoreLinks />
+    </View>
+  </ScrollView>} */
 });
 
 export default App;
