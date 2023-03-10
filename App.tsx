@@ -15,6 +15,9 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  Pressable,
+  Linking,
 } from 'react-native';
 
 import {
@@ -62,6 +65,14 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+const DienynasClick = () => {
+ Linking.openURL("https://mano.vilniustech.lt/login")
+}
+const MoodleClick = () => {
+  Linking.openURL("https://moodle.vilniustech.lt/login/index.php")
+}
+
+
   const Header = () => {
     return(
     <View style={styles.header}>
@@ -84,19 +95,37 @@ function App(): JSX.Element {
     <Text style={styles.sectionTitle}> Zemelapis </Text> 
     </View>
     </View>
+    
+{/* Dienynas */}
 
     <View style={styles.box}>
-    <View style={styles.inner}>   
-    <Text style={styles.sectionTitle}> Dienynas </Text> 
-    </View>
-    </View>
+    <View style={styles.inner}> 
+<Pressable onPress={DienynasClick}
+style={[{height:"100%", width:"100%", alignItems: 'center',
+justifyContent: 'center',}]}
+accessibilityLabel = "what?????">
+
+<Text style={styles.sectionTitle}> Dienynas </Text> 
+</Pressable>
+</View>
+</View>
+
+{/* Moodle */}
 
     <View style={styles.box}>
-    <View style={styles.inner}>   
-    <Text style={styles.sectionTitle}> Moodle </Text> 
+    <View style={styles.inner}>
+    <Pressable onPress={MoodleClick}
+style={[{height:"100%", width:"100%", alignItems: 'center',
+justifyContent: 'center',}]}
+accessibilityLabel = "what?????">
+
+<Text style={styles.sectionTitle}> Moodle </Text> 
+</Pressable>
     </View>
     </View>
 
+
+    
     </View>
 
     )
@@ -151,7 +180,7 @@ box :{
 },
 inner : {
 flex: 1,
-backgroundColor: "grey",  
+backgroundColor: "orange",  
 alignItems: 'center',
 justifyContent: 'center',
 }
