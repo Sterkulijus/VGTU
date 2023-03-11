@@ -72,6 +72,12 @@ const MoodleClick = () => {
   Linking.openURL("https://moodle.vilniustech.lt/login/index.php")
 }
 
+const ZemelapisClick = () => {
+  Linking.openURL("about:blank")
+}
+const TvarkarastisClick = () => {
+  Linking.openURL("about:blank")
+}
 
   const Header = () => {
     return(
@@ -83,16 +89,32 @@ const MoodleClick = () => {
   const Boxes = () => {
     return(
     <View style={styles.boxContainer}>
+      
+      {/* Tvarkarastis */}
 
     <View style={styles.box}>
-    <View style={styles.inner}>   
-    <Text style={styles.sectionTitle}> Tvarkarastis </Text> 
+    <View style={styles.inner}>
+    <Pressable onPress={TvarkarastisClick}
+style={[{height:"100%", width:"100%", alignItems: 'center',
+justifyContent: 'center',}]}
+accessibilityLabel = "what?????">
+
+<Text style={styles.sectionTitle}> Tvarkarastis </Text> 
+</Pressable>
     </View>
     </View>
     
+      {/*  Zemelapis  */}
+
     <View style={styles.box}>
-    <View style={styles.inner}>   
-    <Text style={styles.sectionTitle}> Zemelapis </Text> 
+    <View style={styles.inner}>
+    <Pressable onPress={ZemelapisClick}
+style={[{height:"100%", width:"100%", alignItems: 'center',
+justifyContent: 'center',}]}
+accessibilityLabel = "what?????">
+
+<Text style={styles.sectionTitle}> Zemelapis </Text> 
+</Pressable>   
     </View>
     </View>
     
