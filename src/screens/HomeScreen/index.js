@@ -15,7 +15,7 @@ import {
     ReloadInstructions,
   } from 'react-native/Libraries/NewAppScreen';
 
-const index = () => {
+const Index = () => {
 
     
     const isDarkMode = useColorScheme() === 'dark';
@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default index
+export default Index
