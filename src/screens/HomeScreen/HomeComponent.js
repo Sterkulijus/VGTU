@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, StatusBar  } from 'react-native'
 import React from 'react'
 import {
   StyleSheet,
@@ -10,6 +10,8 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+
+import { AppBar } from "@react-native-material/core";
 
 const HomeComponent = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,17 +36,19 @@ const HomeComponent = () => {
 
   const Header = () => {
     return (
-      <View style={styles.header}>
-        <Text style={styles.sectionTitle}> CIA BUS LOGO </Text>
-      </View>
+      <AppBar title="Screen title" />
+      // <View style={styles.header}>
+      //   <Text style={styles.sectionTitle}> CIA BUS LOGO </Text>
+      // </View>
     )
   }
   const Boxes = () => {
     return (
-      <View style={styles.boxContainer}>
+      <View style={styles.mainContainer}>
+       
         {/* Tvarkarastis */}
 
-        <View style={styles.box}>
+        {/* <View style={styles.box}>
           <View style={styles.inner}>
             <Pressable onPress={TvarkarastisClick}
               style={[{
@@ -56,10 +60,10 @@ const HomeComponent = () => {
               <Text style={styles.sectionTitle}> Tvarkarastis </Text>
             </Pressable>
           </View>
-        </View>
+        </View> */}
 
         {/*  Zemelapis  */}
-
+{/* 
         <View style={styles.box}>
           <View style={styles.inner}>
             <Pressable onPress={ZemelapisClick}
@@ -72,11 +76,11 @@ const HomeComponent = () => {
               <Text style={styles.sectionTitle}> Zemelapis </Text>
             </Pressable>
           </View>
-        </View>
+        </View> */}
 
         {/* Dienynas */}
 
-        <View style={styles.box}>
+        {/* <View style={styles.box}>
           <View style={styles.inner}>
             <Pressable onPress={DienynasClick}
               style={[{
@@ -88,10 +92,10 @@ const HomeComponent = () => {
               <Text style={styles.sectionTitle}> Dienynas </Text>
             </Pressable>
           </View>
-        </View>
+        </View> */}
 
         {/* Moodle */}
-
+{/* 
         <View style={styles.box}>
           <View style={styles.inner}>
             <Pressable onPress={MoodleClick}
@@ -104,7 +108,7 @@ const HomeComponent = () => {
               <Text style={styles.sectionTitle}> Moodle </Text>
             </Pressable>
           </View>
-        </View>
+        </View> */}
 
 
 
@@ -113,57 +117,69 @@ const HomeComponent = () => {
     )
   }
   return (
-    <View>
+    <SafeAreaView style={styles.main} >
       <Header />
       <Boxes />
-    </View>
+    </SafeAreaView >
   )
 }
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  main: {
+    marginTop: StatusBar.currentHeight
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#FFFF00',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  header: {
-    width: '100%',
-    height: '15%',
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  boxContainer: {
-    width: '100%',
-    height: '85%',
-    backgroundColor: 'red',
-    padding: 5,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  box: {
-    width: '50%',
-    height: '50%',
-    backgroundColor: 'blue',
-    padding: 5,
-  },
-  inner: {
-    flex: 1,
-    backgroundColor: "orange",
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  mainContainer: {
+    //padding: ,
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#ecf0f5',
+    alignContent: 'center',
+
+    height: '100%'
+  }
+  // sectionContainer: {
+  //   marginTop: 32,
+  //   paddingHorizontal: 24,
+  // },
+  // sectionTitle: {
+  //   fontSize: 24,
+  //   fontWeight: '600',
+  //   color: '#FFFF00',
+  // },
+  // sectionDescription: {
+  //   marginTop: 8,
+  //   fontSize: 18,
+  //   fontWeight: '400',
+  // },
+  // highlight: {
+  //   fontWeight: '700',
+  // },
+  // header: {
+  //   width: '100%',
+  //   height: '15%',
+  //   backgroundColor: 'blue',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
+  // boxContainer: {
+  //   width: '100%',
+  //   height: '85%',
+  //   backgroundColor: 'red',
+  //   padding: 5,
+  //   flexDirection: 'row',
+  //   flexWrap: 'wrap',
+  // },
+  // box: {
+  //   width: '50%',
+  //   height: '50%',
+  //   backgroundColor: 'blue',
+  //   padding: 5,
+  // },
+  // inner: {
+  //   flex: 1,
+  //   backgroundColor: "orange",
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
 });
 
 export default HomeComponent

@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, Text } from 'react-native';
+import { View, Image, StyleSheet, useWindowDimensions, Text, StatusBar, SafeAreaView } from 'react-native';
 import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
-import CustomInput from '../../components/CustomInput';
-import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
-import { TextInput, IconButton, Button } from "@react-native-material/core";
-// import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { TextInput, Button } from "@react-native-material/core";
 
 const SingInComponent = () => {
     const { username, setUsername } = useState('');
@@ -21,51 +18,44 @@ const SingInComponent = () => {
         navigation.navigate('HomeScreen');
     }
 
+
     return (
 
-        <View style={styles.rootContainer}>
-            <View style={styles.imputContainer}>
+        <SafeAreaView style={styles.main}>
+            <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
+            <View style={styles.inputContainer}>
                 <TextInput
-                    label="aaaaaaaaaaaaaaa"
-                    // leading={props => <Icon name="account" {...props} />}
+                    label="Student Id"
                 />
                 <TextInput
-                    label="ddddddddddddd"
-                    // leading={props => <Icon name="account" {...props} />}
+                    label="Password"
                 />
+                <Button title="Sign In" style={styles.button} onPress={onSignInPressed} />
             </View>
-            {/* <Image source={Logo} style={[styles.logo, {height: height * 0.3}]} resizeMode="contain" />
-            <CustomInput placeholder="Username" value={username} setValue={setUsername}/>
-            <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
-
-            <Button title="Sign In" onPress={onSignInPressed} /> */}
-            {/* //<CustomButton text="Sign in" onPress={onSignInPressed}/> */}
-
-
-        </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
-    rootContainer: {
+    main: {
+        padding: 15,
         display: 'flex',
         backgroundColor: '#ecf0f5',
-        top: '0'
-
-        // alignItems: 'center',
-        // padding: 20,
-        // backgroundColor: 'green'
-    },
-    imputContainer: {
-        //display: 'flex',
-        flexDirection: 'column',
-
+        height: '100%',
+        alignItems: 'center'
     },
     logo: {
+        flex: 2,
         width: '70%',
-        maxWidth: 500,
-        height: 200,
     },
+    inputContainer: {
+        flex:3,
+        alignSelf: 'stretch'
+    },
+    button:{
+        marginTop: 10,
+        backgroundColor: '#0b4dc7'
+    }
 });
 
 export default SingInComponent
