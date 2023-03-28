@@ -8,7 +8,7 @@
 import React from 'react';
 // import type {PropsWithChildren} from 'react';
 
-import Navigation from './src/navigation';
+import Navigation from './src/navigation/navigation';
 import {
   SafeAreaView,
   StyleSheet,
