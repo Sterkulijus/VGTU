@@ -1,21 +1,21 @@
-import { View, Text, SafeAreaView, StatusBar  } from 'react-native'
+import { View, Text, SafeAreaView, StatusBar, useWindowDimensions, Image } from 'react-native'
 import React from 'react'
 import {
   StyleSheet,
   useColorScheme,
-  Pressable,
   Linking,
 } from 'react-native';
-
+import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { AppBar } from "@react-native-material/core";
+import { AppBar, HStack, Button, Avatar, Dropdown, Pressable } from "@react-native-material/core";
+import { height } from '@mui/system';
 
 const HomeComponent = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const { height } = useWindowDimensions();
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -24,7 +24,7 @@ const HomeComponent = () => {
     Linking.openURL("https://mano.vilniustech.lt/login")
   }
   const MoodleClick = () => {
-    //Linking.openURL("https://moodle.vilniustech.lt/login/index.php")
+    Linking.openURL("https://moodle.vilniustech.lt/login/index.php")
   }
 
   const ZemelapisClick = () => {
@@ -36,150 +36,126 @@ const HomeComponent = () => {
 
   const Header = () => {
     return (
-      <AppBar title="Screen title" />
-      // <View style={styles.header}>
-      //   <Text style={styles.sectionTitle}> CIA BUS LOGO </Text>
-      // </View>
+      <AppBar color='#0b4dc7'
+        title="Logo maybe here"
+        // leading={props => (
+        //   <Image source={Logo} style={styles.logo} resizeMode="contain" />
+        // )}
+        trailing={props => (
+          <HStack>
+
+            <Avatar style={styles.avatarStyle} color='grey' label="Eividas Balciunas" size={35} />
+
+          </HStack>
+        )}
+      />
+
     )
   }
-  const Boxes = () => {
+  const Body = () => {
     return (
-      <View style={styles.mainContainer}>
-       
-        {/* Tvarkarastis */}
+      <View style={styles.bodyContainer}>
+        <View style={styles.boxContainer}>
+          {/* Tvarkarastis */}
 
-        {/* <View style={styles.box}>
-          <View style={styles.inner}>
-            <Pressable onPress={TvarkarastisClick}
-              style={[{
-                height: "100%", width: "100%", alignItems: 'center',
-                justifyContent: 'center',
-              }]}
-              accessibilityLabel="what?????">
-
-              <Text style={styles.sectionTitle}> Tvarkarastis </Text>
-            </Pressable>
+          <View style={styles.box}>
+            <View style={styles.inner}>
+              <Pressable onPress={TvarkarastisClick}
+                style={styles.presableStyle}>
+                <Text style={styles.sectionTitle}> Schedule </Text>
+              </Pressable>
+            </View>
           </View>
-        </View> */}
 
-        {/*  Zemelapis  */}
-{/* 
-        <View style={styles.box}>
-          <View style={styles.inner}>
-            <Pressable onPress={ZemelapisClick}
-              style={[{
-                height: "100%", width: "100%", alignItems: 'center',
-                justifyContent: 'center',
-              }]}
-              accessibilityLabel="what?????">
+          {/*  Zemelapis  */}
 
-              <Text style={styles.sectionTitle}> Zemelapis </Text>
-            </Pressable>
+          <View style={styles.box}>
+            <View style={styles.inner}>
+              <Pressable onPress={ZemelapisClick}
+         style={styles.presableStyle}>
+                <Text style={styles.sectionTitle}> Map </Text>
+              </Pressable>
+            </View>
           </View>
-        </View> */}
 
-        {/* Dienynas */}
+          {/* Dienynas */}
 
-        {/* <View style={styles.box}>
-          <View style={styles.inner}>
-            <Pressable onPress={DienynasClick}
-              style={[{
-                height: "100%", width: "100%", alignItems: 'center',
-                justifyContent: 'center',
-              }]}
-              accessibilityLabel="what?????">
-
-              <Text style={styles.sectionTitle}> Dienynas </Text>
-            </Pressable>
+          <View style={styles.box}>
+            <View style={styles.inner}>
+              <Pressable onPress={DienynasClick}
+             style={styles.presableStyle}>
+                <Text style={styles.sectionTitle}> My Vgtu </Text>
+              </Pressable>
+            </View>
           </View>
-        </View> */}
 
-        {/* Moodle */}
-{/* 
-        <View style={styles.box}>
-          <View style={styles.inner}>
-            <Pressable onPress={MoodleClick}
-              style={[{
-                height: "100%", width: "100%", alignItems: 'center',
-                justifyContent: 'center',
-              }]}
-              accessibilityLabel="what?????">
-
-              <Text style={styles.sectionTitle}> Moodle </Text>
-            </Pressable>
+          {/* Moodle */}
+          <View style={styles.box}>
+            <View style={styles.inner}>
+              <Pressable onPress={MoodleClick}
+                    style={styles.presableStyle}>
+                <Text style={styles.sectionTitle}> Moodle </Text>
+              </Pressable>
+            </View>
           </View>
-        </View> */}
-
-
-
+        </View>
       </View>
-
     )
   }
   return (
     <SafeAreaView style={styles.main} >
       <Header />
-      <Boxes />
+      <Body />
     </SafeAreaView >
   )
 }
 const styles = StyleSheet.create({
   main: {
     marginTop: StatusBar.currentHeight
-  },
-  mainContainer: {
-    //padding: ,
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: '#ecf0f5',
-    alignContent: 'center',
 
+  },
+  bodyContainer: {
+    backgroundColor: '#dde2e7',
     height: '100%'
+  },
+
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: 'white',
+  },
+  boxContainer: {
+    width: '100%',
+    height: '85%',
+    padding: 5,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  box: {
+    width: '50%',
+    height: '50%',
+    padding: 5,
+  },
+  inner: {
+    flex: 1,
+    backgroundColor: "#ee6c4d",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 25,
+  },
+  presableStyle: {
+    height:"100%", 
+    width:"100%",
+    alignItems: 'center', 
+    justifyContent: 'center'
+  },
+  avatarStyle: {
+    color: 'white'
   }
-  // sectionContainer: {
-  //   marginTop: 32,
-  //   paddingHorizontal: 24,
-  // },
-  // sectionTitle: {
-  //   fontSize: 24,
-  //   fontWeight: '600',
-  //   color: '#FFFF00',
-  // },
-  // sectionDescription: {
-  //   marginTop: 8,
-  //   fontSize: 18,
-  //   fontWeight: '400',
-  // },
-  // highlight: {
-  //   fontWeight: '700',
-  // },
-  // header: {
-  //   width: '100%',
-  //   height: '15%',
-  //   backgroundColor: 'blue',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-  // boxContainer: {
-  //   width: '100%',
-  //   height: '85%',
-  //   backgroundColor: 'red',
-  //   padding: 5,
-  //   flexDirection: 'row',
-  //   flexWrap: 'wrap',
-  // },
-  // box: {
-  //   width: '50%',
-  //   height: '50%',
-  //   backgroundColor: 'blue',
-  //   padding: 5,
-  // },
-  // inner: {
-  //   flex: 1,
-  //   backgroundColor: "orange",
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
 });
 
 export default HomeComponent

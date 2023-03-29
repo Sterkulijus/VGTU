@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, Text, StatusBar, SafeAreaView } from 'react-native';
+import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView } from 'react-native';
 import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
-import { width } from '@mui/system';
 
 const SingInComponent = () => {
     const { username, setUsername } = useState('');
@@ -26,19 +25,17 @@ const SingInComponent = () => {
                 <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
             </View>
             <View style={styles.inputContainer}>
-                <TextInput  color='#0b4dc7' label="Student Id" style={styles.input} />
+                <TextInput color='#0b4dc7' label="Student Id" style={styles.input} />
                 <TextInput color='#0b4dc7' label="Password" style={styles.input} />
                 <Button title="Sign In" style={styles.button} onPress={onSignInPressed} />
             </View>
         </SafeAreaView>
-
-
     );
 };
 
 const styles = StyleSheet.create({
     main: {
-        backgroundColor: '#ecf0f5',
+        backgroundColor: '#dde2e7',
         flex: 1,
     },
     imageContainer: {
@@ -56,7 +53,7 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '90%',
-
+        
     },
     button: {
         width: '90%',
