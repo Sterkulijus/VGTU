@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, useWindowDimensions, Text, StatusBar, SafeArea
 import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
+import { width } from '@mui/system';
 
 const SingInComponent = () => {
     const { username, setUsername } = useState('');
@@ -20,42 +21,48 @@ const SingInComponent = () => {
 
 
     return (
-
         <SafeAreaView style={styles.main}>
-            <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
+            <View style={styles.imageContainer}>
+                <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
+            </View>
             <View style={styles.inputContainer}>
-                <TextInput
-                    label="Student Id"
-                />
-                <TextInput
-                    label="Password"
-                />
+                <TextInput  color='#0b4dc7' label="Student Id" style={styles.input} />
+                <TextInput color='#0b4dc7' label="Password" style={styles.input} />
                 <Button title="Sign In" style={styles.button} onPress={onSignInPressed} />
             </View>
         </SafeAreaView>
+
+
     );
 };
 
 const styles = StyleSheet.create({
     main: {
-        padding: 15,
-        display: 'flex',
         backgroundColor: '#ecf0f5',
-        height: '100%',
-        alignItems: 'center'
+        flex: 1,
+    },
+    imageContainer: {
+        alignItems: 'center',
     },
     logo: {
-        flex: 2,
         width: '70%',
     },
     inputContainer: {
-        flex:3,
-        alignSelf: 'stretch'
+        position: 'absolute',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%'
     },
-    button:{
+    input: {
+        width: '90%',
+
+    },
+    button: {
+        width: '90%',
+        backgroundColor: '#0b4dc7',
         marginTop: 10,
-        backgroundColor: '#0b4dc7'
-    }
+    },
 });
 
 export default SingInComponent
