@@ -3,12 +3,14 @@ import React from 'react'
 import { StyleSheet, useColorScheme, Linking, } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { useNavigation } from '@react-navigation/native';
-import { AppBar, HStack, Avatar, Pressable } from "@react-native-material/core";
+import { AppBar, HStack, Button, Avatar, Dropdown, Pressable } from "@react-native-material/core";
+import Header from '../components/Header';
 
 const HomeView = () => {
+
+  
   const isDarkMode = useColorScheme() === 'dark';
   const { height } = useWindowDimensions();
-  
   const navigation = useNavigation();
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -29,24 +31,24 @@ const HomeView = () => {
     navigation.navigate('ScheduleView');
   }
 
-  const Header = () => {
-    return (
-      <AppBar color='#0b4dc7'
-        title="Logo maybe here"
-        // leading={props => (
-        //   <Image source={Logo} style={styles.logo} resizeMode="contain" />
-        // )}
-        trailing={props => (
-          <HStack>
+  // const Header = () => {
+  //   return (
+  //     <AppBar color='#0b4dc7'
+  //       title="Logo maybe here"
+  //       // leading={props => (
+  //       //   <Image source={Logo} style={styles.logo} resizeMode="contain" />
+  //       // )}
+  //       trailing={props => (
+  //         <HStack>
 
-            <Avatar style={styles.avatarStyle} color='grey' label="Eividas Balciunas" size={35} />
+  //           <Avatar style={styles.avatarStyle} color='grey' label="Eividas Balciunas" size={35} />
 
-          </HStack>
-        )}
-      />
+  //         </HStack>
+  //       )}
+  //     />
 
-    )
-  }
+  //   )
+  // }
   const Body = () => {
     return (
       <View style={styles.bodyContainer}>
@@ -98,6 +100,7 @@ const HomeView = () => {
     )
   }
   return (
+    
     <SafeAreaView style={styles.main} >
       <Header />
       <Body />
