@@ -2,8 +2,9 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import SingInComponent from '../screens/SignInScreen/SingInComponent';
-import HomeScreen from '../screens/HomeScreen/HomeComponent';
+import SingInView from '../screens/SingInView';
+import HomeView from '../screens/HomeView';
+import ScheduleView from '../screens/ScheduleView';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,10 +13,9 @@ const Navigation = () => {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="SignIn" component={SingInComponent} />
-
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-
+            <Stack.Screen name="SignIn" component={SingInView} />
+            <Stack.Screen name="HomeView" component={HomeView} />
+            <Stack.Screen name="ScheduleView" component={ScheduleView} />
         </Stack.Navigator>
     </NavigationContainer>
   )

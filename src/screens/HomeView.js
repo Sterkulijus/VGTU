@@ -1,21 +1,15 @@
 import { View, Text, SafeAreaView, StatusBar, useWindowDimensions, Image } from 'react-native'
 import React from 'react'
-import {
-  StyleSheet,
-  useColorScheme,
-  Linking,
-} from 'react-native';
-import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import { StyleSheet, useColorScheme, Linking, } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { useNavigation } from '@react-navigation/native';
+import { AppBar, HStack, Avatar, Pressable } from "@react-native-material/core";
 
-import { AppBar, HStack, Button, Avatar, Dropdown, Pressable } from "@react-native-material/core";
-import { height } from '@mui/system';
-
-const HomeComponent = () => {
+const HomeView = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const { height } = useWindowDimensions();
+  
+  const navigation = useNavigation();
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -31,7 +25,8 @@ const HomeComponent = () => {
     Linking.openURL("about:blank")
   }
   const TvarkarastisClick = () => {
-    Linking.openURL("about:blank")
+    // Linking.openURL("about:blank")
+    navigation.navigate('ScheduleView');
   }
 
   const Header = () => {
@@ -72,7 +67,7 @@ const HomeComponent = () => {
           <View style={styles.box}>
             <View style={styles.inner}>
               <Pressable onPress={ZemelapisClick}
-         style={styles.presableStyle}>
+                style={styles.presableStyle}>
                 <Text style={styles.sectionTitle}> Map </Text>
               </Pressable>
             </View>
@@ -83,7 +78,7 @@ const HomeComponent = () => {
           <View style={styles.box}>
             <View style={styles.inner}>
               <Pressable onPress={DienynasClick}
-             style={styles.presableStyle}>
+                style={styles.presableStyle}>
                 <Text style={styles.sectionTitle}> My Vgtu </Text>
               </Pressable>
             </View>
@@ -93,7 +88,7 @@ const HomeComponent = () => {
           <View style={styles.box}>
             <View style={styles.inner}>
               <Pressable onPress={MoodleClick}
-                    style={styles.presableStyle}>
+                style={styles.presableStyle}>
                 <Text style={styles.sectionTitle}> Moodle </Text>
               </Pressable>
             </View>
@@ -148,9 +143,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   presableStyle: {
-    height:"100%", 
-    width:"100%",
-    alignItems: 'center', 
+    height: "100%",
+    width: "100%",
+    alignItems: 'center',
     justifyContent: 'center'
   },
   avatarStyle: {
@@ -158,4 +153,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeComponent
+export default HomeView

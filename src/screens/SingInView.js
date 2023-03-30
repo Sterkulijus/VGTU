@@ -4,7 +4,7 @@ import Logo from '../../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
 
-const SingInComponent = () => {
+const SingInView = () => {
     const { username, setUsername } = useState('');
     const { password, setPassword } = useState('');
 
@@ -15,7 +15,7 @@ const SingInComponent = () => {
         // console.warn("Sign in");
         //validate user
 
-        navigation.navigate('HomeScreen');
+        navigation.navigate('HomeView');
     }
 
 
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SingInComponent
+export default SingInView
