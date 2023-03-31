@@ -10,22 +10,22 @@ import { border } from '@mui/system';
 const ScheduleView = () => {
     const [checked, setChecked] = useState(true);
     // const [week, DienynasClick] = useState(true);
-    var week =5
+    var week = 5
 
     const DienynasClick = () => {
         Alert.alert('Alert Title', 'My Alert Msg', [
             {
-              text: 'Cancel',
-              onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel',
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
             },
-            {text: 'OK', onPress: () => console.log('OK Pressed')},
-          ]);
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ]);
         week = 2
 
-//         setUser({
-// week: 6
-//           });
+        //         setUser({
+        // week: 6
+        //           });
     }
 
     var calendar = []
@@ -33,7 +33,7 @@ const ScheduleView = () => {
         calendar.push(
             <View key={i} style={styles.calendarElement}>
                 <Text style={[{ fontWeight: '600', marginLeft: 14, fontSize: 16, }]}>WeekDay</Text>
-                <Button onPress={DienynasClick}/>
+                <Button onPress={DienynasClick} />
             </View>
         )
     }
