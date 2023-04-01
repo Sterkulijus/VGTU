@@ -15,7 +15,7 @@ const SingInView = () => {
         // console.warn("Sign in");
         //validate user
 
-        navigation.navigate('HomeView');
+        navigation.navigate('ScheduleView');
     }
 
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        marginTop: 40,
+        // marginTop: 40,
         width: '70%',
     },
     inputContainer: {

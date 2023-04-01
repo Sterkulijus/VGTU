@@ -29,7 +29,7 @@ const BottomBar = () => {
     }
 
     const OpenAccount = () => {
-        navigation.navigate('AccountView');
+        Linking.openURL("https://mano.vilniustech.lt/login/index.php")
     }
 
     const LogOut = () => {
@@ -61,7 +61,7 @@ const BottomBar = () => {
 
             <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenAccount}>
                 <Image source={UserIcon} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.selectBar}> Account </Text>
+                <Text style={styles.selectBar}> My Tech </Text>
             </Pressable>
 
             <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={LogOut}>

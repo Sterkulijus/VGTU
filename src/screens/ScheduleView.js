@@ -1,267 +1,132 @@
-import { View, Text, SafeAreaView, StatusBar, useWindowDimensions, Image } from 'react-native'
-import React, { useState } from 'react'
-import { StyleSheet, useColorScheme, Linking, } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, SafeAreaView, StatusBar, Image } from 'react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native';
 import {
-  AppBar, HStack, Button, Avatar, Dropdown, Pressable, Backdrop,
-  BackdropSubheader, Divider, FAB, Switch
+    AppBar, HStack, Button, Avatar, Dropdown, Pressable, Backdrop,
+    BackdropSubheader, Divider, FAB, Switch
 } from "@react-native-material/core";
-import Header from '../components/Header';
-// import BottomNavigation, {
-//   FullTab
-// } from 'react-native-material-bottom-navigation'
 import BottomBar from '../components/BottomBar';
-import Icon from 'react-native-vector-icons'
 
 
 const HomeView = () => {
-  const { height } = useWindowDimensions();
-  const navigation = useNavigation();
 
-  const DienynasClick = () => {
-    Linking.openURL("https://mano.vilniustech.lt/login")
-  }
-  const MoodleClick = () => {
-    Linking.openURL("https://moodle.vilniustech.lt/login/index.php")
-  }
+    //Čia turi buti gaunama info iš fire base apie kalendoriu
 
-  const ZemelapisClick = () => {
-    Linking.openURL("about:blank")
-  }
-  const TvarkarastisClick = () => {
-    // Linking.openURL("about:blank")
-    navigation.navigate('ScheduleView');
-  }
+    // const lectures = [
+    //     {
+    //         name: 'Kompiuteriu architektura',
+    //         lecture: 2,
+    //         hall: 'SRL-24A4',
+    //         group: 1,
+    //     },
+    //     {
+    //         name: 'Lietuviu kalba',
+    //         lecture: 3,
+    //         hall: 'SRL-24A4',
+    //         group: 0,
+    //     }
+    // ]
 
-  const LogOut = () => {
-    navigation.navigate('SignIn');
-  }
+    // const weekDay = [
+    //     {
+    //         weekDay: 'Monday',
+    //         lectures: []
+    //     },
+    //     {
+    //         weekDay: 'Tuesday',
+    //         lectures: []
+    //     },
+    // ]
 
+    // weekDay[0] = lectures
+    // weekDay[1] = lectures
 
-  const [checked, setChecked] = useState(true);
-  // const [week, DienynasClick] = useState(true);
-  var week = 5;
+    // var calendarView = []
 
-  // DienynasClick = () => {
-  //     Alert.alert('Alert Title', 'My Alert Msg', [
-  //         {
-  //             text: 'Cancel',
-  //             onPress: () => console.log('Cancel Pressed'),
-  //             style: 'cancel',
-  //         },
-  //         { text: 'OK', onPress: () => console.log('OK Pressed') },
-  //     ]
-  //     );
-  //     week = 2
+    // for (let i = 0; i < weekDay.length; i++) {
 
-  //     //         setUser({
-  //     // week: 6
-  //     //           });
-  // }
+    //     // for(let i = 0; i < weekDay[i].lectures.length; i++)
+    //     // {
 
-  //Čia turi buti gaunama info iš fire base apie kalendoriu
-  const calendar = [
-    {
-      lecture: 2,
-      weekDay: 'Monday',
-      hall: 'SRL-24A4',
-      group: 1,
-    },
-    {
-      lecture: 3,
-      weekDay: 'Tuesday',
-      hall: 'SRL-24A4',
-      group: 0,
-    }
-  ]
+    //     // }
 
-  var calendarView = []
-  
-  for (let i = 0; i < calendar.length; i++) {
+    //     //Čia duomenis taip perparsinti ko reikia
 
 
+    //     calendarView.push(
+    //         <View key={i} style={styles.calendarElement}>
+    //             <Text style={[{ fontWeight: '700', fontSize: 25, }]}>{calendar[i].weekDay}</Text>
 
-    calendarView.push(
-      <View key={i} style={styles.calendarElement}>
-        <Text style={[{ fontWeight: '600', marginLeft: 14, fontSize: 16, }]}>{calendar[i].weekDay}</Text>
-        
-        
-      </View>
+    //             <View>
+                    
+    //             </View>
+
+
+    //         </View>
+    //     )
+    //}
+
+    return (
+        <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
+            <View style={styles.main}>
+                <SafeAreaView  >
+
+                    <View style={styles.weekStyle}>
+                        <View style={styles.stuff}>
+                            <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>Week 1</Text>
+                        </View>
+                    </View>
+
+                    <View style={styles.calendarContainer}>
+                        {/* {calendarView} */}
+                    </View>
+                </SafeAreaView>
+            </View>
+            <BottomBar></BottomBar>
+        </View>
     )
-  }
-  
-  const LogOutsss = () => {
-    navigation.navigate('SignIn');
-  }
-
-  return (
-    // <SafeAreaView style={{ flex: 1, backgroundColor: '#4f4f4f' }}>
-
-    //   <View style={styles.weekContainer}>
-    //     <Text variant="h6" style={styles.weekStyle}>WEEK {week}</Text>
-    //     {/* <Switch value={checked} onValueChange={() => setChecked(!checked)} /> */}
-    //   </View>
-
-    //   <View style={styles.calendarContainer}>
-    //     {/* {calendar} */}
-    //   </View>
-    //   <BottomBar></BottomBar>
-    // </SafeAreaView>
-
-    <View style={{ flex: 1, backgroundColor: '#4f4f4f' }}>
-      <View style={styles.main}>
-
-        <SafeAreaView  >
-          <Header />
-          <View style={styles.weekContainer}>
-            <Text variant="h6" style={styles.weekStyle}>1</Text>
-            <Switch value={checked} onChange={LogOutsss} onValueChange={() => setChecked(!checked)} />
-            <Text variant="h6" style={styles.weekStyle}>2</Text>
-          </View>
-
-          <View style={styles.calendarContainer}>
-            {calendarView}
-            
-          </View>
-
-        </SafeAreaView>
-
-      </View>
-
-      <BottomBar></BottomBar>
-    </View>
-  )
 }
 const styles = StyleSheet.create({
-  main: {
-    marginTop: StatusBar.currentHeight,
-    backgroundColor: '#dde2e7',
-    flex: 1,
-    
-    height: '100%'
-  },
-  // bottomNavigation: {
-  //   backgroundColor: 'red',
-  //   color: 'red'
-  // },
-  // tesss: {
-  //   backgroundColor: '#dde2e7',
-  //   marginRight: -5,
-  //   marginLeft: -5,
-  //   borderRadius: 100
-  // },
-  // bodyContainer: {
-  //   backgroundColor: '#dde2e7',
-  //   height: '100%'
-  // },
+    main: {
+        marginTop: StatusBar.currentHeight,
+        backgroundColor: '#dde2e7',
+        flex: 1,
+        height: '100%'
+    },
+    calendarElement: {
 
-  // sectionContainer: {
-  //   marginTop: 32,
-  //   paddingHorizontal: 24,
-  // },
-  // sectionTitle: {
-  //   fontSize: 24,
-  //   fontWeight: '600',
-  //   color: 'white',
-  // },
-  // boxContainer: {
-  //   width: '100%',
-  //   height: '85%',
-  //   padding: 5,
-  //   flexDirection: 'row',
-  //   flexWrap: 'wrap',
-  // },
-  // box: {
-  //   width: '50%',
-  //   height: '50%',
-  //   padding: 5,
-  // },
-  // inner: {
-  //   flex: 1,
-  //   backgroundColor: "#ee6c4d",
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   borderRadius: 25,
-  // },
-  // presableStyle: {
-  //   height: "100%",
-  //   width: "100%",
-  //   alignItems: 'center',
-  //   justifyContent: 'center'
-  // },
-  // avatarStyle: {
-  //   color: 'white'
-  // },
-  // buttonStyle: {
-  //   backgroundColor: 'green',
-  //   borderRadius: 50
-  // },
-  // menuButton: {
-  //   margin: 5,
-  //   //  backgroundColor: 
-  //   //alignSelf: 'center',
-  //   // marginRight: 15,
-  //   // marginLeft: 15,
-  //   // borderWidth: 2,
-  //   with: '100%',
-  //   // borderRadius: 20,
-  //   // marginLeft:10,
-  //   // marginRight: 10,
-  //   // marginBottom: 5
-  // },
-  // menuButtonText: {
-  //   fontSize: 16,
-  //   alignSelf: 'center',
-  //   color: 'white',
-  //   fontWeight: '600',
-  //   color: 'black'
-  // },
-  // drawMeniu: {
-  //   fontSize: 20,
-  //   alignSelf: 'center',
-  //   fontWeight: '600',
-  //   color: 'white'
-  // },
-  // toggleButton: {
-  //   borderWidth: 1,
-  //   borderRadius: 50,
-  //   width: 40,
-  //   height: 40,
-  //   backgroundColor: '#dde2e7',
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   alignContent: 'center'
-  // },
-
-  // weekStyle: {
-  //   alignSelf: 'center',
-  // },
-  weekContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderRadius: 25,
-    width: 150,
-    alignSelf: 'center'
-  },
-  // calendarContainer: {
-  //   marginTop: 10,
-  //   width: '100%',
-  //   // marginLeft: 15,
-  //   // marginRight: 15,
-
-  // },
-  // calendarElement: {
-  //   borderWidth: 1,
-  //   marginBottom: 10,
-  //   marginLeft: 15,
-  //   marginRight: 15
-  // }
+        padding: 15
+        // borderWidth: 1,
+        // marginBottom: 10,
+        // marginLeft: 15,
+        // marginRight: 15,
+    },
+    weekContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 25,
+        width: 150,
+        alignSelf: 'center'
+    },
+    weekStyle: {
+        marginTop: 8,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    stuff: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 50,
+        width: '30%',
+        backgroundColor: '#7E7B80'
+    }
 });
 
 export default HomeView

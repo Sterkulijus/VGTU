@@ -16,7 +16,7 @@ const MapView = () => {
    
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#4f4f4f' }}>
+        <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
         <View style={styles.main}>
   
           <Text>asdasdasd</Text>
