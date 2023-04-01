@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView, Alert } from 'react-native';
+import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView } from 'react-native';
 import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
