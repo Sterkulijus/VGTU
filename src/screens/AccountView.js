@@ -5,6 +5,9 @@ import BottomBar from '../components/BottomBar'
 
 const AccountView = () => {
     const [checked, setChecked] = useState(false);
+    
+    //Get student names abreviations 
+    var studentName = "AD"
 
     var easter = 0
 
@@ -28,7 +31,7 @@ const AccountView = () => {
             <View style={styles.main}>
                 <View style={styles.accountContainer}>
                     <Pressable style={styles.pressableStyle} onPress={countPresses}>
-                        <Text style={{ fontSize: 100, fontWeight: 'bool', color: 'white' }}>EB</Text>
+                        <Text style={{ fontSize: 100, color: 'white' }}>{studentName}</Text>
 
                     </Pressable>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
