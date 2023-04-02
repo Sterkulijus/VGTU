@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     calendarElement: {
-        padding: 5
+        padding: 7
     },
     weekContainer: {
         display: 'flex',

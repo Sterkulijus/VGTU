@@ -29,7 +29,7 @@ const BottomBar = () => {
     }
 
     const OpenAccount = () => {
-        Linking.openURL("https://mano.vilniustech.lt/login/index.php")
+        navigation.navigate('AccountView');
     }
 
     const LogOut = () => {
