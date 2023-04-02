@@ -25,7 +25,7 @@ const AccountView = () => {
                     <View style= {{ width: '100%', alignItems: 'center', marginTop: 60}}>
                         <TextInput color='#0b4dc7' label="kazkas.kazkas@stud.vilniustech.com" editable={false} selectTextOnFocus={false} style={styles.input} />
                         <TextInput color='#0b4dc7' label="kazkas.kazkas@stud.vilniustech.com" editable={false} selectTextOnFocus={false} style={styles.input} />
-                        <Button title="Log out" style={styles.button} />
+                        <Text>Nzn cia gal kokios info pridėti</Text>
                     </View>
                 </View>
 

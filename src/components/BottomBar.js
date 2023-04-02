@@ -4,7 +4,7 @@ import { HStack, Button, Avatar, Dropdown, Pressable, Backdrop, BackdropSubheade
 import CalIcon from '../../assets/icons/calendar.png';
 import MapIcon from '../../assets/icons/map.png';
 import ModdleIcon from '../../assets/icons/spreadsheet.png';
-import LogOutIcon from '../../assets/icons/logout.png';
+import SettingsIcon from '../../assets/icons/settings.png';
 import UserIcon from '../../assets/icons/user.png'
 import { useNavigation } from '@react-navigation/native';
 
@@ -32,10 +32,10 @@ const BottomBar = () => {
         navigation.navigate('AccountView');
     }
 
-    const LogOut = () => {
+    const OpenSettings = () => {
         //Clear the user info before log out
 
-        navigation.navigate('SignIn');
+        navigation.navigate('SettingsView');
     }
 
     const OpenSchedule = () => {
@@ -61,12 +61,12 @@ const BottomBar = () => {
 
             <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenAccount}>
                 <Image source={UserIcon} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.selectBar}> My Tech </Text>
+                <Text style={styles.selectBar}> Account </Text>
             </Pressable>
 
-            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={LogOut}>
-                <Image source={LogOutIcon} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.selectBar}> Log Out </Text>
+            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenSettings}>
+                <Image source={SettingsIcon} style={styles.logo} resizeMode="contain" />
+                <Text style={styles.selectBar}> Settings </Text>
             </Pressable>
         </View>
     )

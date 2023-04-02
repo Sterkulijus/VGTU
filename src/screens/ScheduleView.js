@@ -5,7 +5,7 @@ import { Switch } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar';
 
 
-const HomeView = () => {
+const ScheduleView = () => {
     //Čia turi buti gaunama info iš fire base apie kalendoriu
     const lecture = [
         {
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 40
-    }
+    },
 });
 
-export default HomeView
+export default ScheduleView
