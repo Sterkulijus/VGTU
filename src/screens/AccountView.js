@@ -1,24 +1,34 @@
-import React, { Component, useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView, StatusBar, Alert } from 'react-native';
-import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
-import { useNavigation } from '@react-navigation/native';
-import { TextInput, Text, Switch, Stack, Button, Avatar, Pressable } from "@react-native-material/core";
-import Header from '../components/Header';
-import { border } from '@mui/system';
+import React, { useState } from 'react'
+import { View, StyleSheet, StatusBar, Alert } from 'react-native';
+import { TextInput, Text, Switch, Pressable } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar'
 
 
 const AccountView = () => {
     const [checked, setChecked] = useState(false);
 
-    //editable={false} selectTextOnFocus={false} 
+    var easter = 0
+
+    const countPresses = () => {
+        easter = easter + 1;
+        if (easter == 10) {
+            Alert.alert('ONI CHAN!', 'Stop pressing meeeee', [
+                {
+                    text: 'Make me',
+                },
+                {
+                    text: 'Sorry',
+                },
+            ]);
+            easter = 0
+        }
+    }
+
     return (
         <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
             <View style={styles.main}>
                 <View style={styles.accountContainer}>
-
-                    {/* <Avatar label="E B" color='#0b4dc7' size={200} /> */}
-                    <Pressable style={styles.pressableStyle}>
+                    <Pressable style={styles.pressableStyle} onPress={countPresses}>
                         <Text style={{ fontSize: 100, fontWeight: 'bool', color: 'white' }}>EB</Text>
 
                     </Pressable>
@@ -70,6 +80,7 @@ const styles = StyleSheet.create({
         width: '60%',
         borderRadius: 400,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+
     }
 });
