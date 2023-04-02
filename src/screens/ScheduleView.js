@@ -1,7 +1,6 @@
 import { View, Text, StatusBar, ScrollView } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native';
-import { Switch } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar';
 
 

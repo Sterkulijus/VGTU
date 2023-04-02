@@ -1,17 +1,13 @@
-import { View, Text, StatusBar, ScrollView, Image, Dimensions } from 'react-native'
+import { View, Text, StatusBar, Image } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native';
-import { Pressable, Switch, Divider } from "@react-native-material/core";
+import { Pressable, Divider } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar';
 import RightArrowIcon from '../../assets/icons/right-arrow.png'
 import LogOutIcon from '../../assets/icons/logoutBlack.png'
 import VilniusTechImage from '../../assets/images/VT_Logo.png'
 
 const SettingsView = () => {
-    //Čia turi buti gaunama info iš fire base apie kalendoriu
-
-    const windowWidth = Dimensions.get('window').width;
-
 
     return (
         <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
@@ -19,9 +15,7 @@ const SettingsView = () => {
                 <View style={styles.topBar}>
                     <Text style={styles.topBarText}>Vardas Pavardenis</Text>
                 </View>
-
-
-
+                
                 <Pressable style={[styles.pressable]}>
                     <Image source={VilniusTechImage} style={styles.frontLogo} resizeMode="contain" />
                     <Text style={styles.pressableText}> My Vilnius Tech </Text>
@@ -88,7 +82,6 @@ const styles = StyleSheet.create({
     pressable: {
         flexDirection: 'row',
         height: '8%',
-        // justifyContent: 'space-between',
         alignItems: 'center'
     },
     pressableText: {

@@ -3,7 +3,6 @@ import { View, StyleSheet, StatusBar, Alert } from 'react-native';
 import { TextInput, Text, Switch, Pressable } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar'
 
-
 const AccountView = () => {
     const [checked, setChecked] = useState(false);
 

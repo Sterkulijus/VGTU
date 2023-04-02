@@ -3,7 +3,6 @@ import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView, StatusBar, 
 import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Text, Switch, Stack, Button } from "@react-native-material/core";
-import Header from '../components/Header';
 import { border } from '@mui/system';
 import BottomBar from '../components/BottomBar'
 import ModelView from 'react-native-gl-model-view';
