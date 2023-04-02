@@ -1,16 +1,11 @@
-import { View, Text, SafeAreaView, StatusBar, Image, Alert, ScrollView } from 'react-native'
+import { View, Text, StatusBar, ScrollView } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native';
-import {
-    AppBar, HStack, Button, Avatar, Dropdown, Pressable, Backdrop,
-    BackdropSubheader, Divider, FAB, Switch
-} from "@react-native-material/core";
+import { Switch } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar';
 
 
 const HomeView = () => {
-
-
     //Čia turi buti gaunama info iš fire base apie kalendoriu
     const lecture = [
         {
@@ -56,11 +51,8 @@ const HomeView = () => {
         },
     ]
 
-    //Reikia pagal tvarkarašti nustatyti kuri sav bus atvaizduojama 
+    //Need to assign current week 
     const currentWeek = 1
-
-    // weekDays[0].lectures = lecture
-    // weekDays[1].lectures = lecture
 
     var scheduleHeader = []
     scheduleHeader.push(
@@ -86,16 +78,12 @@ const HomeView = () => {
 
     var calendarViews = []
 
-    // weekDays.forEach(weekDay=> 
-    //     )
-
     for (let i = 0; i < weekDays.length; i++) {
         var lectures = weekDays[i].lectures;
 
         var lecturesView = [];
 
         for (let i = 0; i < lectures.length; i++) {
-
             var rowBackground = {
                 backgroundColor: '#dde2e7`'
             }
@@ -163,12 +151,7 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     calendarElement: {
-
-        padding: 15
-        // borderWidth: 1,
-        // marginBottom: 10,
-        // marginLeft: 15,
-        // marginRight: 15,
+        padding: 5
     },
     weekContainer: {
         display: 'flex',
@@ -198,7 +181,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#7E7B80'
     },
     calendarItem: {
-        // backgroundColor: 'red',
         flexDirection: 'row',
         justifyContent: 'space-evenly'
     },
@@ -207,7 +189,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 40
-        //width: ''
     }
 });
 

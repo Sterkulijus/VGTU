@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        // marginTop: 40,
         width: '70%',
     },
     inputContainer: {
