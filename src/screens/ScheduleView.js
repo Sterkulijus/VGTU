@@ -7,6 +7,7 @@ import BottomBar from '../components/BottomBar';
 
 const ScheduleView = () => {
     //Čia turi buti gaunama info iš fire base apie kalendoriu
+    //Vietoje SG column pridėti icon kuri paspaudus prasiplėstu tą lentelės dalis ir rodytu detalesne info 
     const lecture = [
         {
             name: 'Kompiuteriu architektura',
