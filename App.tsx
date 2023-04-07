@@ -9,6 +9,8 @@ import React from 'react';
 // import type {PropsWithChildren} from 'react';
 
 import Navigation from './src/navigation/navigation';
+import RootNavigation from './src/navigation/index';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -56,7 +58,7 @@ const App = () => {
   
   return (      
     <SafeAreaView style={styles.root}>
-     <Navigation/>
+     <RootNavigation/>
         </SafeAreaView>
   );
 }
@@ -66,7 +68,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F9FBFC'
   }
-
   // REACT NATIVE PAVYZDYS!!!!
   /* {<ScrollView
     contentInsetAdjustmentBehavior="automatic"
