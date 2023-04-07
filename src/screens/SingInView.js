@@ -25,8 +25,8 @@ const SingInView = () => {
                 <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
             </View>
             <View style={styles.inputContainer}>
-                <TextInput color='#0b4dc7' label="Student Id" style={styles.input} />
-                <TextInput color='#0b4dc7' label="Password" style={styles.input} />
+                <TextInput color='#0b4dc7' style={styles.input} />
+                <TextInput color='#0b4dc7' style={styles.input} />
                 <Button title="Sign In" style={styles.button} onPress={onSignInPressed} />
             </View>
         </SafeAreaView>

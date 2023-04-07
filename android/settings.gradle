@@ -3,4 +3,5 @@ apply from: file("../node_modules/@react-native-community/cli-platform-android/n
 include ':app'
 includeBuild('../node_modules/react-native-gradle-plugin')
 include ':react-native-gl-model-view'
+include ':expo-modules-core'
 project(':react-native-gl-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-gl-model-view/android/app')
