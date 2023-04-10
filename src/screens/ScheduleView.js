@@ -143,6 +143,7 @@ const ScheduleView = () => {
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     main: {
         marginTop: StatusBar.currentHeight,
