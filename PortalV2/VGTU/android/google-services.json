@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "44369873039",
+    "firebase_url": "https://vgtu-app-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "vgtu-app",
+    "storage_bucket": "vgtu-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44369873039:android:20f825aacb0eb9c42d08fa",
+        "android_client_info": {
+          "package_name": "vgtu.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44369873039-166aedhkmgcjn3i4iplpaf34ghn0gum0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRAep1LYO7s_poQZrMLjtNFepE4vniSEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44369873039-166aedhkmgcjn3i4iplpaf34ghn0gum0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
