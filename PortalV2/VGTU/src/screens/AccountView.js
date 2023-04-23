@@ -14,7 +14,7 @@ const AccountView = () => {
     const countPresses = () => {
         easter = easter + 1;
         if (easter == 10) {
-            Alert.alert('ONI CHAN!', 'Stop pressing meeeee', [
+            Alert.alert('!!!!!!!!!!!!!!!!!!!!', 'Stop pressing meeeee', [
                 {
                     text: 'Make me',
                 },
