@@ -7,6 +7,7 @@ import RightArrowIcon from '../../assets/icons/right-arrow.png'
 import LogOutIcon from '../../assets/icons/logoutBlack.png'
 import VilniusTechImage from '../../assets/images/VT_Logo.png'
 import ChangeThisLogo from '../../assets/icons/question-mark.png'
+import ClockIcon from '../../assets/icons/clock.png'
 import { useNavigation } from '@react-navigation/native';
 
 const SettingsView = () => {
@@ -14,6 +15,10 @@ const SettingsView = () => {
 
     const logOut = () =>{
         navigation.navigate('SignIn');
+    }
+
+    const openLectureTimeWindow = () => {
+        navigation.navigate('LectureTimeView');
     }
 
     const redirectToVTech = () => {
@@ -35,11 +40,11 @@ const SettingsView = () => {
                     </View>
                 </Pressable>
                 <Divider />
-                <Pressable style={[styles.pressable]}>
-                    <Image source={ChangeThisLogo} style={[{ marginLeft: '2%', width: '10%' }]} resizeMode="contain" />
-                    <Text style={styles.pressableText}> Kažką čia gal gero </Text>
+                <Pressable style={[styles.pressable]} onPress={openLectureTimeWindow}>
+                    <Image source={ClockIcon} style={[{ marginLeft: '2%', width: '10%' }]} resizeMode="contain" />
+                    <Text style={styles.pressableText}> Lecture time </Text>
                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                        <Image source={RightArrowIcon} style={[styles.logo]} resizeMode="contain" />
+                        <Image source={RightArrowIcon} style={[styles.logo, {   width: '14%'}]} resizeMode="contain" />
                     </View>
                 </Pressable>
                 <Divider />
@@ -68,6 +73,7 @@ const SettingsView = () => {
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     main: {
         backgroundColor: '#dde2e7',

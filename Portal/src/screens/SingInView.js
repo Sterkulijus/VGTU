@@ -13,14 +13,14 @@ const SingInView = () => {
     const navigation = useNavigation();
 
     const onSignInPressed = async () => {
-        var test2 = firebase.firestore().collection('Schedule').get().then(z => {
+        firebase.firestore().collection('Schedule').get().then(z => {
             z.forEach(test => {
                 let data = test.data();
                 console.log(data)
             })
         });
 
-        navigation.navigate('ScheduleView');
+        navigation.navigate('ScheduleView', {week: 0});
     }
 
     return (
@@ -31,7 +31,7 @@ const SingInView = () => {
             <View style={styles.inputContainer}>
                 <TextInput color='#0b4dc7' style={styles.input} />
                 <TextInput color='#0b4dc7' style={styles.input} />
-                <Button title="Sign In" style={styles.button} onPress={onSignInPressed} />
+                <Button title="Log In" style={styles.button} onPress={onSignInPressed} />
             </View>
         </SafeAreaView>
     );

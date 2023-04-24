@@ -1,7 +1,7 @@
-import React, { useState, useRef, Suspense  } from 'react'
+import React, { useState, useRef, Suspense } from 'react'
 import { View, StyleSheet, StatusBar, Alert, Image } from 'react-native';
 import BottomBar from '../components/BottomBar';
-import { Pressable, Text } from "@react-native-material/core";
+import { Pressable, Text, Divider  } from "@react-native-material/core";
 // import UpArrow from '../../assets/icons/nextUp.png'
 // import DownArrow from '../../assets/icons/nextDown.png'
 // import LeftArrow from '../../assets/icons/nextLeft.png'
@@ -12,22 +12,22 @@ import { useGLTF } from '@react-three/drei/native'
 import { Canvas } from '@react-three/fiber/native'
 //import modelPath from './../assets/models/model.glb'
 
-function Model(props) {
-  const mesh = useRef(null)
- // const { scene } = useGLTF('../../assets/models/model.glb')
-  return <mesh
-  onClick={(e) => console.log('onPress')}
-  onPointerDown={(e) => console.log('onPressIn')}
-  onPointerUp={(e) => console.log('onPressOut')}
-  onDoubleClick={(e) => console.log('onLongPress')}
-  onPointerOver={(e) => console.log('onHoverIn')}
-  onPointerOut={(e) => console.log('onHoverOut')}
-  onPointerMove={(e) => console.log('onPressMove')}
-  // Not implemented
-  // onContextMenu={(e) => console.log('context menu')}
-  // onWheel={(e) => console.log('wheel spins')}
-/>
-}
+// function Model(props) {
+//   const mesh = useRef(null)
+//  // const { scene } = useGLTF('../../assets/models/model.glb')
+//   return <mesh
+//   onClick={(e) => console.log('onPress')}
+//   onPointerDown={(e) => console.log('onPressIn')}
+//   onPointerUp={(e) => console.log('onPressOut')}
+//   onDoubleClick={(e) => console.log('onLongPress')}
+//   onPointerOver={(e) => console.log('onHoverIn')}
+//   onPointerOut={(e) => console.log('onHoverOut')}
+//   onPointerMove={(e) => console.log('onPressMove')}
+//   // Not implemented
+//   // onContextMenu={(e) => console.log('context menu')}
+//   // onWheel={(e) => console.log('wheel spins')}
+// />
+// }
 
 const MapView = () => {
   
@@ -37,11 +37,25 @@ const MapView = () => {
     <View style={styles.main}>
       <View style={styles.main}>
 
-        <Suspense fallback={null}>
-          <Model />
-        </Suspense>
-      </View>
+        <View style={styles.header}>
+          <View style={[styles.mapSelector, {marginRight:5}]}>
+            <Pressable >
+              <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>2D MAP</Text>
+            </Pressable>
+          </View>
+          <View style={styles.mapSelector}>
+            <Pressable >
+              <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>3D MAP</Text>
+            </Pressable>
+          </View>
+        </View>
+        <Divider style={{ marginTop: 5}} />
 
+        <View>
+          {}
+          <Text>aaaaaaaaaaaaaaaaa</Text>
+        </View>
+      </View>
       <BottomBar />
     </View>
   );
@@ -150,17 +164,33 @@ export default MapView;
 
 const styles = StyleSheet.create({
   main: {
+    backgroundColor: '#dde2e7',
     flex: 1,
   },
   button: {
     backgroundColor: 'white'
   },
-  pressableStyle: {
-    height: '7%',
+  header: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 10
   },
-  logo: {
-    height: 28,
+  mapSelector: {
+    backgroundColor: '#0b4dc7',
+    borderRadius: 40,
+    width: '30%',
+    alignItems: 'center'
   },
+
+
+
+  // pressableStyle: {
+  //   height: '7%',
+  //   alignItems: 'center',
+  //   justifyContent: 'center'
+  // },
+  // logo: {
+  //   height: 28,
+  // },
 });

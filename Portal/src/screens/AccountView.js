@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, StatusBar, Alert } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { TextInput, Text, Switch, Pressable } from "@react-native-material/core";
 import BottomBar from '../components/BottomBar'
 
@@ -81,6 +81,5 @@ const styles = StyleSheet.create({
         borderRadius: 400,
         alignItems: 'center',
         justifyContent: 'center',
-
     }
 });

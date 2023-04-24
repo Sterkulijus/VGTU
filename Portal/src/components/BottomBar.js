@@ -17,7 +17,7 @@ const BottomBar = () => {
     }
 
     const OpenMap = () => {
-        navigation.navigate('MapView');
+        navigation.navigate('2DMapView');
     }
 
     const OpenAccount = () => {

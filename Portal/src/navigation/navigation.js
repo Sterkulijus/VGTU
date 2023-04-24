@@ -7,6 +7,9 @@ import ScheduleView from '../screens/ScheduleView';
 import MapView from '../screens/MapView'
 import AccountView from '../screens/AccountView'
 import SettingsView from '../screens/SettingsView'
+import TwoDMapView from '../screens/2DMapView'
+import ThreeDMapView from '../screens/3DMapView'
+import LectureTimeView from '../screens/LectureTimeView'
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +22,9 @@ const Navigation = () => {
             <Stack.Screen name="MapView" component={MapView} />
             <Stack.Screen name="AccountView" component={AccountView} />
             <Stack.Screen name="SettingsView" component={SettingsView} />
+            <Stack.Screen name="2DMapView" component={TwoDMapView} />
+            <Stack.Screen name="3DMapView" component={ThreeDMapView} />
+            <Stack.Screen name="LectureTimeView" component={LectureTimeView} />
         </Stack.Navigator>
     </NavigationContainer>
   )
