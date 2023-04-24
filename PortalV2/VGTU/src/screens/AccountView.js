@@ -58,10 +58,8 @@ export default AccountView;
 
 const styles = StyleSheet.create({
     main: {
-        //marginTop: StatusBar.currentHeight,
         backgroundColor: '#dde2e7',
         flex: 1,
-
     },
     accountContainer: {
         flex: 1,

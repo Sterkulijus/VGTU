@@ -23,7 +23,6 @@ const SingInView = () => {
         navigation.navigate('ScheduleView');
     }
 
-
     return (
         <SafeAreaView style={styles.main}>
             <View style={styles.imageContainer}>
