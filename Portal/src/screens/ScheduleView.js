@@ -20,7 +20,7 @@ const ScheduleView = () => {
 
             time: '12:10-13:45',
             subGroup: 1,
-            type: 'Labaratoriniai',
+            type: 'Paskaitos',
             lecturer: 'Doc. Antanas Smetona'
         },
         {
@@ -40,7 +40,7 @@ const ScheduleView = () => {
             group: 1,
             time: '12:10-13:45',
             subGroup: 1,
-            type: 'Labaratoriniai',
+            type: 'Paskaitos',
             lecturer: 'Doc. Antanas Smetona'
         }
     ]

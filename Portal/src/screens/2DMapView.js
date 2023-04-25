@@ -11,7 +11,7 @@ const TwoDMapView = () => {
             <MapViewHeader />
             <View style={styles.main}>
 
-                <Text>2222222222DDDDDDDDDDDDDDDDDDDDDDDD</Text>
+                <Text>Create a 2d map in this section</Text>
 
             </View>
             <BottomBar></BottomBar>
@@ -26,5 +26,5 @@ const styles = StyleSheet.create({
     main: {
         flex: 1
     },
-    
+
 });
