@@ -6,8 +6,8 @@ import { TextInput, Button } from "@react-native-material/core";
 import firebase from '../firebase/database';
 
 const SingInView = () => {
-    const { username, setUsername } = useState('');
-    const { password, setPassword } = useState('');
+    const [ username, setUsername ] = useState('');
+    const [ password, setPassword ] = useState('');
 
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
@@ -16,21 +16,23 @@ const SingInView = () => {
         firebase.firestore().collection('Schedule').get().then(z => {
             z.forEach(test => {
                 let data = test.data();
-                console.log(data)
+                console.log(data);
             })
         });
-
+        console.log(username);
+        console.log(password);
+        
         navigation.navigate('ScheduleView', {week: 0});
     }
 
     return (
         <SafeAreaView style={styles.main}>
             <View style={styles.imageContainer}>
-                <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
+                <Image source={Logo} style={[styles.logo, { height: height * 0.2 }]} resizeMode="contain" />
             </View>
             <View style={styles.inputContainer}>
-                <TextInput color='#0b4dc7' style={styles.input} />
-                <TextInput color='#0b4dc7' style={styles.input} />
+                <TextInput placeholder='Email' color='#0b4dc7' style={styles.input} onChangeText={email => setUsername(email)}/>
+                <TextInput placeholder='Password' color='#0b4dc7' style={styles.input} onChangeText={password=> setPassword(password)} secureTextEntry={true} />
                 <Button title="Log In" style={styles.button} onPress={onSignInPressed} />
             </View>
         </SafeAreaView>
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     imageContainer: {
-        alignItems: 'center',
+        alignItems: 'center', 
     },
     logo: {
         width: '70%',
