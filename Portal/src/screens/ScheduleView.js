@@ -6,44 +6,49 @@ import { Pressable } from '@react-native-material/core';
 import DownIcon from '../../assets/icons/nextDown.png';
 import UpIcon from '../../assets/icons/nextUp.png';
 
+const lecture = [
+    {
+        name: 'Kompiuteriu Labarato',
+        lecture: 2,
+        hall: 'SRL-24A4',
+        group: 1,
+
+        time: '12:10-13:45',
+        subGroup: 1,
+        type: 'Paskaitos',
+        lecturer: 'Doc. Antanas Smetona'
+    },
+    {
+        name: 'Operacinės sistemos',
+        lecture: 3,
+        hall: 'SRL-24A4',
+        group: 0,
+        time: '12:10-13:45',
+        subGroup: 1,
+        type: 'Labaratoriniai',
+        lecturer: 'Doc. Antanas Smetona'
+    },
+    {
+        name: 'Lietuvių kalba',
+        lecture: 6,
+        hall: 'SRL-24A4',
+        group: 1,
+        time: '12:10-13:45',
+        subGroup: 1,
+        type: 'Paskaitos',
+        lecturer: 'Doc. Antanas Smetona'
+    }
+]
+
 const ScheduleView = () => {
     var [calendarViews, setState] = useState([]);
+    
     var currentWeek = 1
 
-    //Čia turi buti gaunama info iš fire base apie kalendoriu
-    const lecture = [
-        {
-            name: 'Kompiuteriu Labarato',
-            lecture: 2,
-            hall: 'SRL-24A4',
-            group: 1,
 
-            time: '12:10-13:45',
-            subGroup: 1,
-            type: 'Paskaitos',
-            lecturer: 'Doc. Antanas Smetona'
-        },
-        {
-            name: 'Operacinės sistemos',
-            lecture: 3,
-            hall: 'SRL-24A4',
-            group: 0,
-            time: '12:10-13:45',
-            subGroup: 1,
-            type: 'Labaratoriniai',
-            lecturer: 'Doc. Antanas Smetona'
-        },
-        {
-            name: 'Lietuvių kalba',
-            lecture: 6,
-            hall: 'SRL-24A4',
-            group: 1,
-            time: '12:10-13:45',
-            subGroup: 1,
-            type: 'Paskaitos',
-            lecturer: 'Doc. Antanas Smetona'
-        }
-    ]
+
+    //Čia turi buti gaunama info iš fire base apie kalendoriu
+    
     const weekDays = [
         {
             weekDay: 'Monday',

@@ -10,6 +10,7 @@ import SettingsView from '../screens/SettingsView'
 import TwoDMapView from '../screens/2DMapView'
 import ThreeDMapView from '../screens/3DMapView'
 import LectureTimeView from '../screens/LectureTimeView'
+import Schedule from '../screens/Schedule';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,9 +19,9 @@ const Navigation = () => {
     <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="SignIn" component={SingInView} />
-            <Stack.Screen name="ScheduleView" component={ScheduleView} />
             <Stack.Screen name="MapView" component={MapView} />
-            <Stack.Screen name="AccountView" component={AccountView} />
+            <Stack.Screen name="ScheduleView" component={Schedule} />
+            <Stack.Screen name="AccountView" component={AccountView} c/>
             <Stack.Screen name="SettingsView" component={SettingsView} />
             <Stack.Screen name="2DMapView" component={TwoDMapView} />
             <Stack.Screen name="3DMapView" component={ThreeDMapView} />

@@ -1,5 +1,6 @@
 import firebase from '@react-native-firebase/app';
 import '@react-native-firebase/firestore';
+//import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   appId: '1:305836683096:android:529325e5bc48a51ba47f2d',
@@ -14,6 +15,8 @@ const firebaseConfig = {
 console.log(firebase.apps.length)
 if (firebase.apps.length == 0) {
   firebase.initializeApp(firebaseConfig);
+  //add firebase.db by dominykas
+  //firebase.db = getFirestore(app);
 }
 
 export default firebase;
