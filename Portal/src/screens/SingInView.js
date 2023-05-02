@@ -16,7 +16,7 @@ const SingInView = () => {
         firebase.firestore().collection('Schedule').get().then(z => {
             z.forEach(test => {
                 let data = test.data();
-                console.log(data);
+              //  console.log(data);
             })
         });
         console.log(username);
