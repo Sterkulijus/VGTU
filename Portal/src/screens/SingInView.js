@@ -4,7 +4,8 @@ import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
 import firebase from '../firebase/database';
-
+import Schedule from '../screens/Schedule';
+import { useRoute } from '@react-navigation/native';
 const SingInView = () => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
@@ -13,18 +14,91 @@ const SingInView = () => {
     const navigation = useNavigation();
 
     const onSignInPressed = async () => {
-        firebase.firestore().collection('Schedule').get().then(z => {
-            z.forEach(test => {
-                let data = test.data();
-              //  console.log(data);
-            })
-        });
-        console.log(username);
-        console.log(password);
+
+        handleLogin(username,password)
+       //console.log(username);
+      // console.log(password);
         
-        navigation.navigate('ScheduleView', {week: 0});
+      //  navigation.navigate('ScheduleView', {week: 0});
     }
 
+
+    const showAlert = () => {
+        Alert.alert(
+          'Neteisingas Slaptazodis arba studento ID',
+          '',
+          [
+            {
+              text: 'OK',
+              onPress: () => console.log('OK Pressed')
+            }
+          ]
+        );
+      };
+
+   function handleLogin(userId, password) {
+
+        firebase.firestore().collection('User Firebase Auth').get().then(z => {
+            z.forEach(test => {
+                let data = test.data();
+                if (data.Email === userId && data.Password === password) {
+                  //  const navigation = useNavigation();
+                    navigation.navigate({name:'ScheduleView',params: { myGroup: data.GroupId }, merge: true});
+                  
+                    siunciam(data.GroupId);
+                   // siunciam(data.GroupId)
+                   // const temp= 1;
+                    throw "break";
+
+                    //GroupeID(data.GroupId);
+                //    console.log(data);  
+            }
+            else{ 
+                showAlert();
+               // console.log("Neteisingas Slaptazodis arba Studento ID");
+              }
+        })
+        });
+
+function siunciam(grupesid){
+   // const navigation = useNavigation();
+   // console.log(grupesid); 
+    navigation.navigate({name:'ScheduleView',params: { myGroup: grupesid }, merge: true});
+}
+
+
+// function GroupeID(Groupe){
+//         const submit = () => {
+// navigation.navigate({
+// name:'ScheduleView',
+// params:{grupe: Groupe},
+// merge:true,
+
+// });
+//         }
+//     }
+
+
+        // db.collection('users').where('userId', '==', userId).get()
+        //   .then((querySnapshot) => {
+        //     if (!querySnapshot.empty) {
+        //       // If the user exists, check if the entered password matches the stored password
+        //       const userDoc = querySnapshot.docs[0];
+        //       const userData = userDoc.data();
+        //       if (userData.password === password) {
+        //         // If the passwords match, navigate the user to the app's main screen
+        //       } else {
+        //         // If the passwords don't match, display an error message
+        //       }
+        //     } else {
+        //       // If the user doesn't exist, display an error message
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     // Handle query error
+        //   });
+      }
+      
     return (
         <SafeAreaView style={styles.main}>
             <View style={styles.imageContainer}>

@@ -3,10 +3,15 @@ import React, {useState, useEffect} from 'react';
 import { FlatList, View, Text, ScrollView, Image } from 'react-native'
 import { StyleSheet } from 'react-native';
 import BottomBar from '../components/BottomBar';
+import ReceiverScreen from '../components/ReceiverScreen';
 import { collection } from "../firebase/database.js";
 import firebase from '../firebase/database';
+import { useRoute } from '@react-navigation/native';
+import SingInView from '../screens/SingInView';
+
 
 const Schedule = () => {
+    const route = useRoute();
 
     const currentDate = new Date();
     const startDate = new Date(currentDate.getFullYear(), 0, 1);
@@ -14,7 +19,7 @@ const Schedule = () => {
     const weekDay = days % 7;
     const weekNumber = Math.ceil(days / 7);
     const isEven = weekNumber % 2 === 0 ? true : false;
-
+    const GrouIDD = "null"; 
 
     console.log(isEven); 
 
@@ -25,7 +30,7 @@ const Schedule = () => {
             z.forEach(test => {
                 let data = test.data();
                 if (data.savaitesDiena === weekDay) {
-                    console.log(data);                               //sitas parodo visas paskaitas kurios bus siandiena
+                  //  console.log(data);                               //sitas parodo visas paskaitas kurios bus siandiena
                     setData(documents);
                   }
                 //console.log(data);
@@ -37,11 +42,21 @@ const Schedule = () => {
         firebase.firestore().collection('Schedule').get().then(z => {
             z.forEach(test => {
                 let data = test.data();
-                console.log(data);                                  //sitas parodo visas paskaitas kurios bus per savaite
+             //   console.log(data);                                  //sitas parodo visas paskaitas kurios bus per savaite
             })
         });
       };
 
+
+    //   async function handleLogin() {
+    //     const route = useRoute();
+      
+    //     const { Group } = route.params;
+      
+    //     return (
+    //         Group
+    //     );
+    //   }
     //   useEffect(() => {
     //     getTable();   
     //   }, []);
@@ -49,13 +64,12 @@ const Schedule = () => {
     //   useEffect(() => {
     //     getTodaysTable();   
     //   }, []);
-
+  
     
-
     const Table = ({ data }) => {
-        console.log('data:', data); // Add this line to log the data
+        //  console.log('data:', data); // Add this line to log the data
         return (
-          <FlatList
+            <FlatList
             data={data}
             renderItem={({ item }) => (
                 <View style={styles.row}>
@@ -64,55 +78,47 @@ const Schedule = () => {
   <Text style={styles.cell}>{item.Laikas}</Text>
 </View>
                 )}
-
+                
                 //paspaudus turi issiplesti ir rodyti :
                 // <Text style={styles.cell}>{item.Destytojas}</Text>
                 // <Text style={styles.cell}>{item.Tipas}</Text>
                 
-            keyExtractor={(item, index) => index.toString()}
-          />
-        );
-      };
-      const MyComponent = () => {
-        const [data, setData] = useState([]);
-        const todaysData = [];
-        const getTable = async() => {
-            firebase.firestore().collection('Schedule').get().then(z => {
-                z.forEach(test => {
-                    let data = test.data();
-                    if (data.savaitesDiena === weekDay) {
-                    //    console.log(data);  
-                        todaysData.push(data);                                //sitas parodo visas paskaitas kurios bus sia diena
-                }})
-                setData(todaysData);
-            });
-          };
-    
+                keyExtractor={(item, index) => index.toString()}
+                />
+                );
+            };
+
+
+            const MyComponent = () => {
+                const [data, setData] = useState([]);
+              //  const [group, setGroup] = useState(null);
+                const todaysData = [];
+                const route = useRoute();
+
+var grupe = route.params.myGroup;
+
+                const getTable = async() => {
+                    firebase.firestore().collection('Schedule').get().then(z => {
+                        z.forEach(test => {
+                            let data = test.data();
+                            //console.log(grupe);
+                            if (data.savaitesDiena === weekDay && data.GroupID === grupe) {
+                                
+                                    todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
+
+                                }})
+                                setData(todaysData);
+                        });
+                    };
+                  
         useEffect(() => {
+        //     gaunam({navigation, route})
             getTable();
         }, []);
     
         return <Table data={data} />;
       };
 
-        // const [daySchedule, setDaySchedule] = useState([]);
-      
-        // const getScheduleByDay = async () => {
-        //   const q = query(collection(db, 'Schedule'), where('savaitesDiena', '==', 1));
-        //   const querySnapshot = await getDocs(q);
-        //   const schedule = [];
-        //   querySnapshot.forEach((doc) => {
-        //     if (doc.data().savaitesDiena === 1) {
-        //       schedule.push({ id: doc.id, ...doc.data() });
-        //     }
-        //   });
-        //   setDaySchedule(schedule);
-        // };
-      
-        // useEffect(() => {
-        //   getScheduleByDay();
-        //   console.log(daySchedule);
-        // }, []);
 
 
     //grazina kuri savaite: pirma ar antra
