@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
-import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView, Alert } from 'react-native';
+import { View, Image, StyleSheet, useWindowDimensions, SafeAreaView, Alert, Linking } from 'react-native';
 import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
 import firebase from '../firebase/database';
 import Schedule from '../screens/Schedule';
 import { useRoute } from '@react-navigation/native';
+
+
+const redirectToForgotPassword = () => {
+    Linking.openURL("https://mano.vilniustech.lt/registration/remind")
+}  
+
+
+
 const SingInView = () => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
@@ -108,6 +116,7 @@ function siunciam(grupesid){
                 <TextInput placeholder='Email' color='#0b4dc7' style={styles.input} onChangeText={email => setUsername(email)}/>
                 <TextInput placeholder='Password' color='#0b4dc7' style={styles.input} onChangeText={password=> setPassword(password)} secureTextEntry={true} />
                 <Button title="Log In" style={styles.button} onPress={onSignInPressed} />
+                <Button title="Forgot Password" style={styles.button1} onPress={redirectToForgotPassword} />
             </View>
         </SafeAreaView>
     );
@@ -137,6 +146,11 @@ const styles = StyleSheet.create({
     button: {
         width: '90%',
         backgroundColor: '#0b4dc7',
+        marginTop: 10,
+    },
+    button1: {
+        width: 190,
+        backgroundColor: 'gray',
         marginTop: 10,
     },
 });

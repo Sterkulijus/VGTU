@@ -19,7 +19,7 @@ const MapViewHeader = () => {
         <View style={styles.main}>
             <View style={styles.main}>
                 <View style={styles.header}>
-                    <View style={[styles.mapSelector, { marginRight: 5 }]}>
+                    <View style={[styles.mapSelector, { marginRight: 15 }]}>
                         <Pressable onPress={goTo2DView}>
                             <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>2D MAP</Text>
                         </Pressable>
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
-        marginBottom: 5
+        marginTop: 30,
+        marginBottom: 30,
     },
     mapSelector: {
         backgroundColor: '#0b4dc7',

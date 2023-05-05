@@ -94,8 +94,13 @@ const Schedule = () => {
               //  const [group, setGroup] = useState(null);
                 const todaysData = [];
                 const route = useRoute();
-
-var grupe = route.params.myGroup;
+                var grupe;
+if(route === SingInView)
+var grupe1 = route.params.myGroup;
+else{
+    grupe1=grupe;
+}
+grupe = grupe1;
 
                 const getTable = async() => {
                     firebase.firestore().collection('Schedule').get().then(z => {

@@ -4,8 +4,8 @@ import { Pressable} from "@react-native-material/core";
 import CalIcon from '../../assets/icons/calendar.png';
 import MapIcon from '../../assets/icons/map.png';
 import ModdleIcon from '../../assets/icons/spreadsheet.png';
+import VgtuIcon from '../../assets/icons/internet.png';
 import SettingsIcon from '../../assets/icons/settings.png';
-import UserIcon from '../../assets/icons/user.png'
 import { useNavigation } from '@react-navigation/native';
 
 const BottomBar = () => {
@@ -20,8 +20,8 @@ const BottomBar = () => {
         navigation.navigate('2DMapView');
     }
 
-    const OpenAccount = () => {
-        navigation.navigate('AccountView');
+    const OpenVgtu = () => {
+        Linking.openURL("https://sso.vilniustech.lt/module.php/core/loginuserpass.php?AuthState=_eac26eaddb94f35334da31e8ebff7465c8eeb2d845%3Ahttps%3A%2F%2Fsso.vilniustech.lt%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fmano.vilniustech.lt%252F%26RelayState%3Dhttps%253A%252F%252Fmano.vilniustech.lt%252F%26cookieTime%3D1683283286");
     }
 
     const OpenSettings = () => {
@@ -49,9 +49,9 @@ const BottomBar = () => {
                 <Text style={styles.selectBar}> Moodle </Text>
             </Pressable>
 
-            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenAccount}>
-                <Image source={UserIcon} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.selectBar}> Account </Text>
+            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenVgtu}>
+                <Image source={VgtuIcon} style={styles.logo} resizeMode="contain" />
+                <Text style={styles.selectBar}> VilniusTech </Text>
             </Pressable>
 
             <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenSettings}>
@@ -68,12 +68,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#dde2e7',
     },
     pressable: {
+        paddingTop: 4,
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
         backgroundColor: '#0b4dc7',
-        borderTopEndRadius: 10,
-        borderTopLeftRadius: 10,
     },
     selectBar: {
         color: 'white'
