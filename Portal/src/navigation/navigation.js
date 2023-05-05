@@ -7,7 +7,7 @@ import ScheduleView from '../screens/ScheduleView';
 import MapView from '../screens/MapView'
 import AccountView from '../screens/AccountView'
 import SettingsView from '../screens/SettingsView'
-import TwoDMapView from '../screens/2DMapView'
+import TwoDMapView from '../screens/TwoDMapView'
 import ThreeDMapView from '../screens/3DMapView'
 import LectureTimeView from '../screens/LectureTimeView'
 import Schedule from '../screens/Schedule';
