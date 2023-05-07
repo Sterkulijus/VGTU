@@ -4,7 +4,6 @@ import Logo from '../../assets/images/VT_pilnas_BlueTransparent.png';
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, Button } from "@react-native-material/core";
 import firebase from '../firebase/database';
-import Schedule from '../screens/Schedule';
 import { useRoute } from '@react-navigation/native';
 
 
@@ -24,10 +23,10 @@ const SingInView = () => {
     const onSignInPressed = async () => {
 
         handleLogin(username,password)
-       //console.log(username);
-      // console.log(password);
+    //console.log(username);
+    // console.log(password);
         
-      //  navigation.navigate('ScheduleView', {week: 0});
+      //navigation.navigate('ScheduleView');
     }
 
 

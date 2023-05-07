@@ -7,9 +7,9 @@ import ReceiverScreen from '../components/ReceiverScreen';
 import { collection } from "../firebase/database.js";
 import firebase from '../firebase/database';
 import { useRoute } from '@react-navigation/native';
-import SingInView from '../screens/SingInView';
+import SingInView from './SingInView';
 
-const Schedule = () => {
+const ScheduleWeek = () => {
     const route = useRoute();
 
     const currentDate = new Date();
@@ -44,26 +44,7 @@ const Schedule = () => {
             })
         });
       };
-
-
-    //   async function handleLogin() {
-    //     const route = useRoute();
       
-    //     const { Group } = route.params;
-      
-    //     return (
-    //         Group
-    //     );
-    //   }
-    //   useEffect(() => {
-    //     getTable();   
-    //   }, []);
-
-    //   useEffect(() => {
-    //     getTodaysTable();   
-    //   }, []);
-  
-    
     const Table = ({ data }) => {
         //  console.log('data:', data); // Add this line to log the data
         return (
@@ -84,40 +65,8 @@ const Schedule = () => {
             );
     };
 
-
-    // const viewSelector = () =>{
-    //     return (
-    //         <View style={styles.main}>
-    //           <View style={styles.main}>
-        
-    //             <View style={styles.header}>
-    //               <View style={[styles.viewSelector, {marginRight:5}]}>
-    //                 <Pressable >
-    //                   <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>Šios dienos</Text>
-    //                 </Pressable>
-    //               </View>
-    //               <View style={styles.viewSelector}>
-    //                 <Pressable >
-    //                   <Text style={{ fontWeight: '700', fontSize: 20, color: 'white' }}>Visos savaitės</Text>
-    //                 </Pressable>
-    //               </View>
-    //             </View>
-    //             <Divider style={{ marginTop: 5}} />
-        
-    //             <View>
-    //               {}
-    //               <Text>aaaaaaaaaaaaaaaaa</Text>
-    //             </View>
-    //           </View>
-    //           <BottomBar />
-    //         </View>
-    //       );
-    // }
-
-
-
-    const MyComponent = () => {
-        const [data, setData] = useState([]);
+    const MyComponent1 = () => {
+        let [data, setData] = useState([]);
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
@@ -134,21 +83,163 @@ const Schedule = () => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === weekDay && data.GroupID === grupe) {    
+                        if (data.savaitesDiena === 1) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
-                            }})
+                        }})
                             setData(todaysData);
             });
         };
-                  
         useEffect(() => {
-        //     gaunam({navigation, route})
             getTable();
         }, []);
     
-    return <Table data={data} />;
+    return(
+        <ScrollView>
+        <Text>Pirmadienis</Text>
+        <Table data = {data} />
+        </ScrollView>
+    ) 
     };
+    const MyComponent2 = () => {
+        let [data, setData] = useState([]);
+        //const [group, setGroup] = useState(null);
+        const todaysData = [];
+        const route = useRoute();
+        var grupe;
+        if(route === SingInView)
+            var grupe1 = route.params.myGroup;
+        else{
+            grupe1=grupe;
+        }
+        grupe = grupe1;
 
+        const getTable = async() => {
+            firebase.firestore().collection('Schedule').get().then(z => {
+                z.forEach(test => {
+                    let data = test.data();
+                    //console.log(grupe);
+                        if (data.savaitesDiena === 2) {    
+                                todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
+                        }})
+                            setData(todaysData);
+            });
+        };
+        useEffect(() => {
+            getTable();
+        }, []);
+    
+    return(
+        <ScrollView>
+        <Text>Antradienis</Text>
+        <Table data = {data} />
+        </ScrollView>
+    ) 
+    };
+    const MyComponent3 = () => {
+        let [data, setData] = useState([]);
+        //const [group, setGroup] = useState(null);
+        const todaysData = [];
+        const route = useRoute();
+        var grupe;
+        if(route === SingInView)
+            var grupe1 = route.params.myGroup;
+        else{
+            grupe1=grupe;
+        }
+        grupe = grupe1;
+
+        const getTable = async() => {
+            firebase.firestore().collection('Schedule').get().then(z => {
+                z.forEach(test => {
+                    let data = test.data();
+                    //console.log(grupe);
+                        if (data.savaitesDiena === 3) {    
+                                todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
+                        }})
+                            setData(todaysData);
+            });
+        };
+        useEffect(() => {
+            getTable();
+        }, []);
+    
+    return(
+        <ScrollView>
+        <Text>Treciadienis</Text>
+        <Table data = {data} />
+        </ScrollView>
+    ) 
+    };
+    const MyComponent4 = () => {
+        let [data, setData] = useState([]);
+        //const [group, setGroup] = useState(null);
+        const todaysData = [];
+        const route = useRoute();
+        var grupe;
+        if(route === SingInView)
+            var grupe1 = route.params.myGroup;
+        else{
+            grupe1=grupe;
+        }
+        grupe = grupe1;
+
+        const getTable = async() => {
+            firebase.firestore().collection('Schedule').get().then(z => {
+                z.forEach(test => {
+                    let data = test.data();
+                    //console.log(grupe);
+                        if (data.savaitesDiena === 4) {    
+                                todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
+                        }})
+                            setData(todaysData);
+            });
+        };
+        useEffect(() => {
+            getTable();
+        }, []);
+    
+    return(
+        <ScrollView>
+        <Text>Ketvirtadienis</Text>
+        <Table data = {data} />
+        </ScrollView>
+    ) 
+    };
+    const MyComponent5 = () => {
+        let [data, setData] = useState([]);
+        //const [group, setGroup] = useState(null);
+        const todaysData = [];
+        const route = useRoute();
+        var grupe;
+        if(route === SingInView)
+            var grupe1 = route.params.myGroup;
+        else{
+            grupe1=grupe;
+        }
+        grupe = grupe1;
+
+        const getTable = async() => {
+            firebase.firestore().collection('Schedule').get().then(z => {
+                z.forEach(test => {
+                    let data = test.data();
+                    //console.log(grupe);
+                        if (data.savaitesDiena === 5) {    
+                                todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
+                        }})
+                            setData(todaysData);
+            });
+        };
+        useEffect(() => {
+            getTable();
+        }, []);
+    
+    return(
+        <ScrollView>
+        <Text>Penktadienis</Text>
+        <Table data = {data} />
+        </ScrollView>
+    ) 
+    };
 
 
     //grazina kuri savaite: pirma ar antra
@@ -156,7 +247,13 @@ const Schedule = () => {
         return (
             <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
             <View style={styles.main}><Text>{`Week 1`}</Text></View>
-            <MyComponent />   
+            <ScrollView>
+                <MyComponent1 />
+                <MyComponent2 />
+                <MyComponent3 />
+                <MyComponent4 />
+                <MyComponent5 />  
+            </ScrollView>
             <BottomBar />
             </View>
         );
@@ -165,23 +262,20 @@ const Schedule = () => {
         return(
             <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
             <View style={styles.main}><Text>{`Week 1`}</Text></View>
-            <MyComponent />   
+            <ScrollView>
+                <MyComponent1 />
+                <MyComponent2 />
+                <MyComponent3 />
+                <MyComponent4 />
+                <MyComponent5 /> 
+            </ScrollView>  
             <BottomBar />
             </View>
         );
     }
 
     
-}
-
-    /*(return (
-        <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
-            <View style={styles.main}><Text>{`Current week is even? ${isEven}`}</Text></View>
-            <BottomBar></BottomBar>
-        </View>
-    )   
-    */
-    
+}    
 
 const styles = StyleSheet.create({
      row: {
@@ -263,6 +357,12 @@ const styles = StyleSheet.create({
         height: 35,
         width: '100%'
     },
+    textBig: {
+        fontWeight: '700',
+        fontSize: 60,
+        marginLeft: '2%',
+        color: 'black',
+    },
     moreInfoButton: {
         flexDirection: 'row',
         alignItems: 'center'
@@ -281,4 +381,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Schedule
+export default ScheduleWeek

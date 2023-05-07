@@ -30,9 +30,6 @@ import { Canvas } from '@react-three/fiber/native'
 // }
 
 const MapView = () => {
-  
-
-
   return (
     <View style={styles.main}>
       <View style={styles.main}>
