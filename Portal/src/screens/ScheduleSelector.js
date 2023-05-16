@@ -2,14 +2,16 @@ import { View, StyleSheet} from 'react-native';
 import BottomBar from '../components/BottomBar';
 import { useNavigation } from '@react-navigation/native';
 import { Pressable, Text, Divider, Button } from "@react-native-material/core";
-
+import { useRoute } from '@react-navigation/native';
 const ScheduleSelector = () => {
+  const route = useRoute();
+  var grupee = route.params.myGroup;
   const navigation = useNavigation();
   const onWeekPress = async () => { 
-    navigation.navigate('ScheduleWeek');
+    navigation.navigate({name:'ScheduleWeek',params: { myGroup: grupee }, merge: true});
   }
   const onDayPress = async () => { 
-    navigation.navigate('ScheduleDay');
+    navigation.navigate({name:'ScheduleDay',params: { myGroup: grupee }, merge: true});
   }
 
   return (

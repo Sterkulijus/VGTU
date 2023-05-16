@@ -7,7 +7,7 @@ import ReceiverScreen from '../components/ReceiverScreen';
 import { collection } from "../firebase/database.js";
 import firebase from '../firebase/database';
 import { useRoute } from '@react-navigation/native';
-import SingInView from './SingInView';
+import SingInView from '../screens/ScheduleSelector';
 
 const ScheduleWeek = () => {
     const route = useRoute();
@@ -70,20 +70,15 @@ const ScheduleWeek = () => {
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
-        var grupe;
-        if(route === SingInView)
-            var grupe1 = route.params.myGroup;
-        else{
-            grupe1=grupe;
-        }
-        grupe = grupe1;
-
+        var grupe = route.params.myGroup;
+        //console.log(route.params.myGroup);
+//console.log(grupe);
         const getTable = async() => {
             firebase.firestore().collection('Schedule').get().then(z => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === 1) {    
+                        if (data.savaitesDiena === 1 && data.GroupID === grupe) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
                         }})
                             setData(todaysData);
@@ -105,20 +100,15 @@ const ScheduleWeek = () => {
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
-        var grupe;
-        if(route === SingInView)
-            var grupe1 = route.params.myGroup;
-        else{
-            grupe1=grupe;
-        }
-        grupe = grupe1;
-
+        var grupe = route.params.myGroup;
+        //console.log(route.params.myGroup);
+//console.log(grupe);
         const getTable = async() => {
             firebase.firestore().collection('Schedule').get().then(z => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === 2) {    
+                        if (data.savaitesDiena === 2 && data.GroupID === grupe) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
                         }})
                             setData(todaysData);
@@ -140,20 +130,15 @@ const ScheduleWeek = () => {
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
-        var grupe;
-        if(route === SingInView)
-            var grupe1 = route.params.myGroup;
-        else{
-            grupe1=grupe;
-        }
-        grupe = grupe1;
-
+        var grupe = route.params.myGroup;
+        //console.log(route.params.myGroup);
+//console.log(grupe);
         const getTable = async() => {
             firebase.firestore().collection('Schedule').get().then(z => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === 3) {    
+                        if (data.savaitesDiena === 3 && data.GroupID === grupe) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
                         }})
                             setData(todaysData);
@@ -175,20 +160,15 @@ const ScheduleWeek = () => {
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
-        var grupe;
-        if(route === SingInView)
-            var grupe1 = route.params.myGroup;
-        else{
-            grupe1=grupe;
-        }
-        grupe = grupe1;
-
+        var grupe = route.params.myGroup;
+        //console.log(route.params.myGroup);
+//console.log(grupe);
         const getTable = async() => {
             firebase.firestore().collection('Schedule').get().then(z => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === 4) {    
+                        if (data.savaitesDiena === 4 && data.GroupID === grupe) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
                         }})
                             setData(todaysData);
@@ -210,20 +190,15 @@ const ScheduleWeek = () => {
         //const [group, setGroup] = useState(null);
         const todaysData = [];
         const route = useRoute();
-        var grupe;
-        if(route === SingInView)
-            var grupe1 = route.params.myGroup;
-        else{
-            grupe1=grupe;
-        }
-        grupe = grupe1;
-
+        var grupe = route.params.myGroup;
+        //console.log(route.params.myGroup);
+//console.log(grupe);
         const getTable = async() => {
             firebase.firestore().collection('Schedule').get().then(z => {
                 z.forEach(test => {
                     let data = test.data();
                     //console.log(grupe);
-                        if (data.savaitesDiena === 5) {    
+                        if (data.savaitesDiena === 5 && data.GroupID === grupe) {    
                                 todaysData.push(data);        //sitas parodo visas paskaitas kurios bus sia diena
                         }})
                             setData(todaysData);

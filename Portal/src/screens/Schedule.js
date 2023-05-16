@@ -7,7 +7,7 @@ import ReceiverScreen from '../components/ReceiverScreen';
 import { collection } from "../firebase/database.js";
 import firebase from '../firebase/database';
 import { useRoute } from '@react-navigation/native';
-import SingInView from '../screens/SingInView';
+import SingInView from '../screens/ScheduleSelector';
 
 const Schedule = () => {
     const route = useRoute();
