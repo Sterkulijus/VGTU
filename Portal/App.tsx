@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView,  StyleSheet, useColorScheme } from 'react-native';
+import { SafeAreaView,  StyleSheet, useColorScheme} from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Navigation from './src/navigation/navigation';
 
@@ -23,5 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor:  Colors.lighter,
   }
 });
+
+
 
 export default App;
