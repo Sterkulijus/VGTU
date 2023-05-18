@@ -30,19 +30,17 @@ const SingInView = () => {
     };
 
     function handleLogin(userId, password) {
-        const collectionRef = collection(firestore, 'User Firebase Auth');
+        const collectionRef = collection(firestore, 'KazkasKazkur');
         getDocs(collectionRef)
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     let data = doc.data();
 
-                    if (data.Email === '20212132' && data.Password === 'Admin') {
+                    if (data.Email === userId && data.Password === password) {
                         gotoMainPage(data['GroupId']);
-                        // throw "break";
                     }
                     else {
                         showAlert();
-                        // throw "break";
                     }
                 });
             })

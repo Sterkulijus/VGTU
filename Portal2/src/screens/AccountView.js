@@ -7,7 +7,7 @@ const AccountView = () => {
     const [checked, setChecked] = useState(false);
 
     //Get student names abreviations 
-    var studentName = "AD"
+    var studentName = "EB"
     var easter = 0
     const countPresses = () => {
         easter = easter + 1;
@@ -32,15 +32,15 @@ const AccountView = () => {
                         <Text style={{ fontSize: 100, color: 'white' }}>{studentName}</Text>
 
                     </Pressable>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
+                    {/* <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
                         <Switch value={checked} onValueChange={() => setChecked(!checked)} />
                         <Text>Dark mode</Text>
-                    </View>
+                    </View> */}
 
                     <View style={{ width: '100%', alignItems: 'center', marginTop: 60 }}>
-                        <TextInput color='#0b4dc7' label="Antanas Smetona" editable={false} selectTextOnFocus={false} style={styles.input} />
-                        <TextInput color='#0b4dc7' label="antanas.smetona@stud.vilniustech.com" editable={false} selectTextOnFocus={false} style={styles.input} />
-                        <Text>Group: EIP-2022</Text>
+                        <TextInput color='#0b4dc7' label="Eividas Balčiūnas" editable={false} selectTextOnFocus={false} style={styles.input} />
+                        <TextInput color='#0b4dc7' label="eividas.balciunas@stud.vilniustech.lt" editable={false} selectTextOnFocus={false} style={styles.input} />
+                        <Text>Group: EIP-22</Text>
                     </View>
                 </View>
 

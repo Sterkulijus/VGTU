@@ -12,7 +12,7 @@ const MapViewHeader = () => {
     }
 
     const goTo2DView = ()=> {
-        navigation.navigate('2DMapView', {week: 0});
+        navigation.navigate('TwoDMapView', {week: 0});
     }
 
     return (
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 5,
-        marginBottom: 5,
+        // marginBottom: 5,
     },
     mapSelector: {
         backgroundColor: '#0b4dc7',

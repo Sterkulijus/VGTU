@@ -34,7 +34,7 @@ const SettingsView = () => {
         <View style={{ flex: 1, backgroundColor: '#DFE5EB' }}>
             <View style={styles.main}>
                 <View style={styles.topBar}>
-                    <Text style={styles.topBarText}>Antanas Smetona</Text>
+                    <Text style={styles.topBarText}>Eividas Balčiūnas</Text>
                 </View>
 
                 <Pressable style={[styles.pressable]} onPress={redirectToVTech}>
@@ -52,14 +52,14 @@ const SettingsView = () => {
                         <Image source={RightArrowIcon} style={[styles.logo, { width: '14%' }]} resizeMode="contain" />
                     </View>
                 </Pressable>
-                <Divider />
+                {/* <Divider />
                 <Pressable style={[styles.pressable]} onPress={openAccountView}>
                     <Image source={AccountIcon} style={[{ marginLeft: '2%', width: '10%' }]} resizeMode="contain" />
                     <Text style={styles.pressableText}> Account </Text>
                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                         <Image source={RightArrowIcon} style={[styles.logo, { width: '13%' }]} resizeMode="contain" />
                     </View>
-                </Pressable>
+                </Pressable> */}
                 <Divider />
                 <Pressable style={[styles.pressable, { justifyContent: 'flex-start' }]} onPress={logOut}>
                     <Image source={LogOutIcon} style={[{ marginLeft: '2%', width: '10%' }]} resizeMode="contain" />

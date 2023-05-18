@@ -4,8 +4,8 @@ import { Pressable} from "@react-native-material/core";
 import CalIcon from '../../assets/icons/calendar.png';
 import MapIcon from '../../assets/icons/map.png';
 import ModdleIcon from '../../assets/icons/spreadsheet.png';
-import VgtuIcon from '../../assets/icons/internet.png';
 import SettingsIcon from '../../assets/icons/settings.png';
+import AccountIcon from '../../assets/icons/user.png'
 import { useNavigation } from '@react-navigation/native';
 
 const BottomBar = () => {
@@ -17,7 +17,7 @@ const BottomBar = () => {
     }
 
     const OpenMap = () => {
-        navigation.navigate('2DMapView');
+        navigation.navigate('TwoDMapView');
     }
 
     const OpenVgtu = () => {
@@ -30,6 +30,10 @@ const BottomBar = () => {
 
     const OpenSchedule = () => {
         navigation.navigate('TodaysSchedule');
+    }
+
+    const OpenAccount = () => {
+        navigation.navigate('AccountView');
     }
 
     return (
@@ -49,9 +53,9 @@ const BottomBar = () => {
                 <Text style={styles.selectBar}> Moodle </Text>
             </Pressable>
 
-            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenVgtu}>
-                <Image source={VgtuIcon} style={styles.logo} resizeMode="contain" />
-                <Text style={styles.selectBar}> V Tech </Text>
+            <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenAccount}>
+                <Image source={AccountIcon} style={styles.logo} resizeMode="contain" />
+                <Text style={styles.selectBar}> Account </Text>
             </Pressable>
 
             <Pressable style={[styles.pressable, { width: windowWidth * 0.20 }]} onPress={OpenSettings}>

@@ -9,7 +9,7 @@ import ScheduleSelector from '../components/ScheduleSelector'
 
 const lecture = [
     {
-        name: 'Kompiuteriu Labarato',
+        name: 'Kompiuteriu Sistemos ',
         lecture: 2,
         hall: 'SRL-24A4',
         group: 1,
@@ -72,6 +72,7 @@ const ScheduleView = () => {
     ]
 
     const loadNextWeek = () => {
+        currentWeek = 2
         //Get next weeks data from firebase 
         const lecture = [
             {

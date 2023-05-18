@@ -11,6 +11,8 @@ import ScheduleView from '../screens/ScheduleView';
 import TodaysSchedule from '../screens/TodaySchedule';
 import LectureTimeView from '../screens/LectureTimeView'
 
+import mapKazkas from '../screens/TwoDMapView'
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -25,6 +27,7 @@ const Navigation = () => {
             <Stack.Screen name="3DMapView" component={ThreeDMapView} />
             <Stack.Screen name="TodaysSchedule" component={TodaysSchedule} />
             <Stack.Screen name="LectureTimeView" component={LectureTimeView} />
+            <Stack.Screen name="TwoDMapView" component={mapKazkas} />
         </Stack.Navigator>
     </NavigationContainer>
   )

@@ -15,8 +15,8 @@ import RightArrow from '../../assets/icons/nextRight.png'
 
 
 export default function ThreeDMapView() {
-    var XCoordinate = 0
-    var YCoordinate = 0
+    var XCoordinate = 1
+    var YCoordinate = 2
     var timer = null
 
     const addXPlus = () => {
@@ -51,11 +51,11 @@ export default function ThreeDMapView() {
         //   require('./assets/Airmax/textures/Roughness.png'),
         // ]);
 
-        const material = useLoader(MTLLoader, require('../../assets/untitled.mtl'));
+        const material = useLoader(MTLLoader, require('../../assets/VGTU5.mtl'));
 
         const obj = useLoader(
             OBJLoader,
-            require('../../assets/untitled.obj'),
+            require('../../assets/VGTU5.obj'),
             (loader) => {
                 material.preload();
                 loader.setMaterials(material);
@@ -63,7 +63,7 @@ export default function ThreeDMapView() {
         );
 
         const mesh = useRef();
-
+           
         // useLayoutEffect(() => {
         //   obj.traverse((child) => {
         //     // if (child instanceof THREE.Mesh) {
